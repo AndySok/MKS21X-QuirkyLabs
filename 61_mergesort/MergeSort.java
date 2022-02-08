@@ -43,12 +43,24 @@ public class MergeSort
    * Sorts input array using mergesort algorithm
    * Returns sorted version of input array (ascending)
    ******************************************************/
-   /*
+
   public static int[] sort( int[] arr )
   {
-
+    if(arr.length==1) return arr;
+    else{
+      int split = arr.length / 2;
+      int[] first = new int[split];
+      int[] last = new int[arr.length - split];
+      for(int i=0;i<split;i++){
+        first[i] = arr[i];
+      }
+      for(int i=0;i<arr.length - split;i++){
+        last[i] = arr[i+split];
+      }
+      return merge(sort(first), sort(last));
+    }
   }//end sort()
-*/
+
 
 
   //-------------------HELPERS-------------------------
@@ -92,12 +104,13 @@ public class MergeSort
 
       System.out.println("\nMerging arr4 and arr6: ");
       printArray( merge(arr4,arr6) );
-    /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
+
       System.out.println("\nSorting arr4-7...");
       printArray( sort( arr4 ) );
       printArray( sort( arr5 ) );
       printArray( sort( arr6 ) );
       printArray( sort( arr7 ) );
+  /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
