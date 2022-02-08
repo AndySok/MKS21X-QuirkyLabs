@@ -71,6 +71,7 @@ public class StatPrinter
     }
     return max;
   }
+  // Big O notation is O(n)
    
   //*************** QUESTION 02 **************************
   //precond:  data.size() > 0, each entry b/t 0,100 inclusive
@@ -93,6 +94,7 @@ public class StatPrinter
      }
    
   }
+  // Big O notation is O(n^2)
 
   //*************** QUESTION 03 **************************
   //postcond: returns true if i > 0 and i < _frequency.size() - 1
@@ -114,6 +116,7 @@ public class StatPrinter
    return false;
   
   }
+  // Big O notation is O(1)
 
   //*************** QUESTION 04 **************************
   //postcond: returns list of modes in _frequency
@@ -127,6 +130,7 @@ public class StatPrinter
      }
      return modes;
   }
+  // Big O notation is O(1)
 
   //*************** QUESTION 05 **************************
   //precond:  longestBar > 0
@@ -145,6 +149,7 @@ public class StatPrinter
          System.out.print("\n");
       }
   }
+   // Big O notation is O(n^2)
   
    public String toString(){
       return _frequency.toString();

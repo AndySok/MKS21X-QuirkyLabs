@@ -1,25 +1,28 @@
-Team Alpha Star (Kevin Xiao, Andrey Sokolov)
+Team Alpha Star (Kevin Xiao, Andrey Sokolov) ++ Mr. Swag & Geese
 APCS pd8
 L05 -- stat printer
 2022-02-03
-time spent:  hrs
+time spent: 1.5 hrs
 
 
 DISCO
 ------------------------------------------------
-* 
+* Vscode live share is an incredibly useful tool for collaborating efficiently
+* Andrey Sokolov is very good at computer science!
+* We had to typecast into double so that printHistogram would output a satisfactory amount of stars
 ================================================
 
 
 QCC
 ------------------------------------------------
-* 
+* What is the Big O notation for the PrintHistogram method?
+* Is O(ln n) the same as O(log n)?
 ================================================
 
 
 MISC
 ------------------------------------------------
-* 
+* Is ln pronounced lawn or l - n or natural log? (P.S. my calc teacher told us to never call it lawn but Andrey thinks otherwise)
 ================================================
 
 
