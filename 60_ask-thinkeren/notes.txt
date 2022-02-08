@@ -1,0 +1,33 @@
+// Team Alpha Star - Andrey Sokolov + Geese & Kevin Xiao + Mr. Swag
+// APCS pd8
+// HW 60- Ask A Thinkeren
+// 2022-02-07
+// time spent: 0.5 hrs
+
+DISCO:
+
+Outsourcing is a lot less taxing on resources and allows for optimization. 
+In the experiment done in class today, we looked at how we can split a deck of cards into two parts and "outsource" these cards to two other entities, or thinkeren.
+We discovered it's really hard to accomplish this task with Stuyvesant juniors and seniors because there is always at least one faulty machine that causes the program to fail.
+However, if all machines worked properly, the task should have been accomplished in a smooth and efficient manner.
+
+
+QCC: 
+
+How to ensure that there are no faulty machines and the program is guaranteed to succeed?
+Why can't we just outsource to some foreign company and have them do all the work for us?
+Who is Fred? (Asked by Andrey)
+
+
+Thinkeren Firmware:
+
+Allowed to give, take, and give back sorted.
+Everytime you receive one source of data, you split it into halves and outsource to two other thinkeren.
+Exception to this rule is when you receive a sorted list (aka a list of one element)
+When this exception happens, you give back the sorted list to the person who handed you the list.
+Everytime you receive two sources of data, you merge the two sorted lists into one sorted list using the following algorithm:
+
+Take the first element of each set of data and compare the two. Take the least of the two elements and put it at the front of your new list.
+Repeat this process until one of your two original lists run out, and then just append the rest of the remaining original list onto your new list.
+
+Hand the sorted list back to the person who gave you one list originally.
