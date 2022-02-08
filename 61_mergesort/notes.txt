@@ -1,0 +1,9 @@
+// Team Alpha Star - Andrey Sokolov + Geese & Kevin Xiao + Mr. Swag
+// APCS pd8
+// HW 61- MergeSort
+// 2022-02-08
+// time spent:  hrs
+
+DISCO:
+
+QCC:
