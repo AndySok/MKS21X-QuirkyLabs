@@ -2,8 +2,15 @@
 // APCS pd8
 // HW 61- MergeSort
 // 2022-02-08
-// time spent:  hrs
+// time spent: 0.5 hrs
 
 DISCO:
 
+Writing the sort method recursively is a lot easier than an interative approach.
+We set two new variables as indexes for the two lists we would get, just so that it's easier to tell the program which data set element we want to look at.
+Couldn't use any ArrayList methods which would have made writing the program a lot easier.
+
 QCC:
+
+What is the time complexity for mergesort?
+Why is mergesort any better than the other sort methods?
