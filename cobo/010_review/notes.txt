@@ -54,6 +54,38 @@ method to return a 4, even though theoretically it is supposed to return a 0.
 b. it would be rational to simply flip the conditionals so that they check if the totalSentiment values are GREATER than the constants which those values are being compared to.
 So chang if(totalSentiment < 15) to if(totalSentiment > 15) and so on.
 
+Activity 3
+
+3
+indexOf takes the position of where you want to make the split and substring allows you to split the string into
+sections when paired with indexOf. It's important to add a 1 to the position of the space because substring takes the first index inclusive.
+
+5
+A static method belongs to the class while a non-static method belongs to an object of the class. Therefore, the static method can be called by the class as well as the object of the class but
+non-static can only be called by the object, so it's more convenient to use a static method here.
+
+6
+You could replace all the adjectives used in the review with random negative or random positive adjectives, thus artificially creating a negative or positive review.
+
+Activity 4
+
+1 
+Automatically send a negative review to any restaurant you thought negatively of or have critiques of.
+
+2
+Automatically send a positive review to any restuarant you thought postively of or just out of an act of kindness.
+
+3
+Method should look through the input for any words that belong to the negativeadjective list and then replace that word with a random word from the positive adjective list.
+
+5
+Removes the first index of the string oneWord.
+
+6
+Theres no data point in the csv file that has a * in front of the adjective, so not removing the * will cause an exception where the program won't be able to find the right sentiment value.
+
+7
+Replace all the adjectives with positive adjectives.
 
 ---------------------------------------------------------------------------------------
 DISCO:

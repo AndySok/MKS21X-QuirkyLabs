@@ -118,8 +118,15 @@ public class Review {
     Scanner input = new Scanner(review);
     while(input.hasNext()){
       String word = input.next();
-      if(word.charAt(0) == '*') word = randomAdjective();
-      fakeReview += word + " ";
+      //Solution for activity 3 if(word.charAt(0) == '*') word = randomAdjective();
+      //Activity 4
+      String punctuation = getPunctuation(word);
+      if(word.charAt(0) == '*'){
+        word = removePunctuation(word);
+        if(sentimentVal(word) > 0 ) word = randomNegativeAdj();
+        else if (sentimentVal(word) < 0) word = randomPositiveAdj();
+      }
+      fakeReview += word + punctuation + " ";
     }
     return fakeReview;    
   }
