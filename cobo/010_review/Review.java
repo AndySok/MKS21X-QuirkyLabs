@@ -96,6 +96,20 @@ public class Review {
   }
 
   /**
+   * @returns the star rating of a review
+   */
+  public static int starRating(String fileName){
+    int star = 0;
+    double value = totalSentiment(fileName);
+    if(value>=0&&value<10) return 1;
+    else if(value>=10&&value<20) return 2;
+    else if(value>=20&&value<30) return 3;
+    else if(value>=30&&value<40) return 4;
+    else if(value>=40) return 5;
+    return 0;
+  }
+
+  /**
    * @returns the sentiment value of word as a number between -1 (very negative) to 1 (very positive sentiment)
    */
   public static double sentimentVal( String word )
@@ -176,6 +190,7 @@ public class Review {
   }
   public static void main(String[] args){
     System.out.println(totalSentiment(args[0]));
+    System.out.println(starRating(args[0]));
     //System.out.println(sentimentVal("awful"));
     //System.out.println(sentimentVal("painful"));
     //System.out.println(sentimentVal("terrific"));
