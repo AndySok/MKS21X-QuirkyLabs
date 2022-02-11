@@ -90,4 +90,10 @@ Replace all the adjectives with positive adjectives.
 ---------------------------------------------------------------------------------------
 DISCO:
 
+Collegeboard assignments are a lot of reading.
+Collegeboard assignments don't know how to properly comment their code.
+Csv files are convenient to parse through.
+
 QCC:
+
+How can we write a program that would generate reviews based on past reviews?
