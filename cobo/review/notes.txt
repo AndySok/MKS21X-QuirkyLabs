@@ -29,10 +29,10 @@ Activity 2
 Method was written, utilizing the existing textToString
 
 2 
-totalSentiment("SimpleReview.txt"); = 0.13
+totalSentiment("SimpleReview.txt"); = -0.59
 
 3 
-starRating("SimpleReview.txt"); = 1
+starRating("SimpleReview.txt"); = 0
 
 4
 totalSentiment(string fileName) operates using a Scanner which scans the string given to it by the textToString(string) method. 

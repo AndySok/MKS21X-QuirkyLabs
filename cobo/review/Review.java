@@ -90,7 +90,10 @@ public class Review {
     String review = textToString(fileName);
     Scanner input = new Scanner(review);
     while(input.hasNext()){
-      sum+= sentimentVal(input.next());
+      String word = input.next();
+      word = removePunctuation(word);
+      System.out.println(word);
+      sum+= sentimentVal(word);
     }
     return sum;
   }
