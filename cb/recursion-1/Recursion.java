@@ -38,6 +38,10 @@ public class Recursion{
     else if(n>9) return 0 + count7(n/10);
     else return 0;
   }
+  //count8
+  public static int count8(int n){
+
+  }
   public static void main(String[] args){
     System.out.println(factorial(4)); //returns 24
     System.out.println(factorial(6)); //returns 720
