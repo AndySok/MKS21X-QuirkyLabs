@@ -5,7 +5,7 @@
 // time spent: 0.5 hrs
 public class Recursion{
   //groupSum
-  public boolean groupSum(int start, int[] nums, int target) {
+  public static boolean groupSum(int start, int[] nums, int target) {
     if (start>=nums.length){
       return (target == 0);
     }
@@ -19,7 +19,7 @@ public class Recursion{
   }
 
   //groupSum6
-  public boolean groupSum6(int start, int[] nums, int target) {
+  public static boolean groupSum6(int start, int[] nums, int target) {
   if (start>=nums.length){
     return (target == 0);
   }
@@ -39,7 +39,7 @@ public class Recursion{
 
 }
   //GroupNoAdj
-  public boolean groupNoAdj(int start, int[] nums, int target) {
+  public static boolean groupNoAdj(int start, int[] nums, int target) {
   if (start>=nums.length){
     return (target == 0);
   }
@@ -53,7 +53,7 @@ public class Recursion{
   }
 
   //groupSum5
-  public boolean groupSum5(int start, int[] nums, int target) {
+  public static boolean groupSum5(int start, int[] nums, int target) {
   if (start>=nums.length){
     return (target == 0);
   }
