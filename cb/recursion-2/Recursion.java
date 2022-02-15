@@ -83,4 +83,14 @@ public class Recursion{
   }
   return false;
 }
+  public static void main(String[] args){
+    int[] arr = {2,4,8};
+    System.out.println(groupSum(0, arr, 10)); //returns true
+    int[] arr2 = {9};
+    System.out.println(groupSum6(0, arr2, 1)); //returns false
+    int[] arr3 = {2, 5, 10, 4, 2};
+    System.out.println(groupNoAdj(0, arr3, 7)); //returns true
+    int[] arr4 = {3, 5, 1};
+    System.out.println(groupSum5(0, arr4, 5)); //returns true
+  }
 }
