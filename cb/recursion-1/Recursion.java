@@ -39,8 +39,16 @@ public class Recursion{
     else return 0;
   }
   //count8
-  public static int count8(int n){
-
+  public static int count8(int n) {
+    if (n == 0){
+      return 0;
+    } else if (n%100 == 88){
+      return 2 + count8(n/10);
+    } else if (n%10 == 8){
+      return 1 + count8(n/10);
+    } else {
+      return count8(n/10);
+    } 
   }
   public static void main(String[] args){
     System.out.println(factorial(4)); //returns 24
@@ -57,5 +65,7 @@ public class Recursion{
     System.out.println(sumDigits(1111)); //returns 4
     System.out.println(count7(7)); //returns 1
     System.out.println(count7(99999)); //returns 0
+    System.out.println(count8(8)); //returns 1
+    System.out.println(count8(88)); //returns 3
   }
 }
