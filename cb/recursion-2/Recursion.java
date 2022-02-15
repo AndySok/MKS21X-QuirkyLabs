@@ -4,13 +4,83 @@
 // 2022-02-14
 // time spent: 0.5 hrs
 public class Recursion{
-  //Group Sum
-  public static boolean groupSum(int start, int[] nums, int target) { //DOESN'T WORK
-    if(start>=nums.length) return target == 0;
-    else return groupSum(start+1, nums, target-nums[start]);
+  //groupSum
+  public boolean groupSum(int start, int[] nums, int target) {
+    if (start>=nums.length){
+      return (target == 0);
+    }
+    if (groupSum(start+1,nums,target-nums[start])){
+      return true;
+    }
+    if (groupSum(start+1,nums,target)){
+      return true;
+    }
+    return false;
   }
-  public static void main(String[] args){
-    int[] arr = {2, 4, 8};
-    System.out.println(groupSum(0, arr, 9)); //returns false
+
+  //groupSum6
+  public boolean groupSum6(int start, int[] nums, int target) {
+  if (start>=nums.length){
+    return (target == 0);
   }
+  if(nums[start] ==6){
+    if (groupSum6(start+1,nums,target-nums[start])){
+      return true;
+    } 
+  } else {
+    if (groupSum6(start+1,nums,target-nums[start])){
+      return true;
+    }
+    if (groupSum6(start+1,nums,target)){
+    return true;
+    }
+  }
+  return false;
+
+}
+  //GroupNoAdj
+  public boolean groupNoAdj(int start, int[] nums, int target) {
+  if (start>=nums.length){
+    return (target == 0);
+  }
+  if (groupNoAdj(start+2,nums,target-nums[start])){
+      return true;
+  }
+  if (groupNoAdj(start+1,nums,target)){
+    return true;
+  }
+  return false;
+  }
+
+  //groupSum5
+  public boolean groupSum5(int start, int[] nums, int target) {
+  if (start>=nums.length){
+    return (target == 0);
+  }
+  if((nums[start] %5 == 0)){
+    if(start == nums.length-1){
+      if (groupSum5(start+1,nums,target-nums[start])){
+        return true;
+      }
+    } else if(nums[start+1] == 1){
+      if (groupSum5(start+2,nums,target-nums[start])){
+        return true;
+      }
+    } else{
+      if (groupSum5(start+1,nums,target-nums[start])){
+        return true;
+      }
+    }
+
+  }
+  else {
+    if (groupSum5(start+1,nums,target-nums[start])){
+      return true;
+    }
+    if (groupSum5(start+1,nums,target)){
+    return true;
+    }
+  }
+  return false;
+}
 }
