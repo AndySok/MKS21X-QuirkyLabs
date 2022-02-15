@@ -1,3 +1,8 @@
+// Team Alpha Star - Andrey Sokolov + Geese & Kevin Xiao + Mr. Swag
+// APCS pd8
+// HW 64: Revisitation
+// 2022-02-14
+// time spent: 0.5 hrs
 public class Recursion{
   //factorial
   public static int factorial(int n){

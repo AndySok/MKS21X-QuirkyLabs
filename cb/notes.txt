@@ -1,0 +1,14 @@
+// Team Alpha Star - Andrey Sokolov + Geese & Kevin Xiao + Mr. Swag (with help of Joshua Gao)
+// APCS pd8
+// HW 64 - Revisitation
+// 2022-02-14
+// time spent: 0.5 hr
+DISCO:
+
+Migrating from one APCS section to a different one can have its benefits!
+Codingbat is fun - though there's a lot of assignments to do.
+Recursions get complicated really quickly.
+
+QCC:
+
+What's the limit of recursive functions? That is, is there something they will never be able to do?
