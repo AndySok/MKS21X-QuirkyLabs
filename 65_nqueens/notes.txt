@@ -1,0 +1,16 @@
+// Team Alpha Star - Andrey Sokolov + Geese & Kevin Xiao + Mr. Swag
+// APCS pd8
+// HW 65 - How Many Queens Can a Thinker Place, If a Thinker Can Place Queens...
+// 2022-02-16
+// time spent: 1 hrs
+
+DISCO:
+
+The fact that iteration can be used with recursion is a game changer
+WRAPPING YOUR HEAD AROUND solving this is HARD
+It's very important to git your mind clear about cols and rows
+
+QCC:
+
+Will we be counting the number of solutions later?
+WHAT is the BIG O for solveH?
