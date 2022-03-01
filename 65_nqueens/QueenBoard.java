@@ -53,11 +53,7 @@ public class QueenBoard
     }
   
 
-    /** Print board, a la toString...
-        Except:
-        all negs and 0's replaced with underscore
-        all 1's replaced with 'Q'
-    */
+
   public void printSolution()
   {
     String board = "";
