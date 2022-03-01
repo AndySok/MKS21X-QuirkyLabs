@@ -15,6 +15,12 @@
  * $ java KnightTour [N]
  *
  * ALGO
+ * 1. Create a board of (n+moatSize)*(n+moatSize) size, with moatSize depending on the value of n.
+ * 2. begin the KnightsTour at a random position on the chessboard.
+ * 3. Recursively try to "solve" (find a tour) from each of knight's available moves.
+ * 4. If none of the moves work, backtrack to a previously made move to continue the recursion.
+ * 5. when a winning tour is found, mark the board as "solved" and end the animation.
+ * 6. by the end of the simulation, each of the board squares should be filled with the number of the move they were used on.
  *
  * DISCO
  * not every board is equal. as the boards get bigger, it gets a lot harder to compute a solvable set. 
