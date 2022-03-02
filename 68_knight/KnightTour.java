@@ -34,8 +34,8 @@
  * I wonder how Fred is doing... 
  *
  * Mean execution times for boards of size n*n:
- * n=5   0.172s    across 5 executions
- * n=6   1.553s    across 5 executions
+ * n=5   83s    across 2 executions
+ * n=6   128s    across 3 execution
  * n=7   computed for more than a minute    across 1 executions
  * n=8   computed for more than 5 minutes    across 1 executions
  *
