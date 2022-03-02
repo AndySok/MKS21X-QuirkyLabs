@@ -1,0 +1,33 @@
+// Team Alpha Star - Andrey Sokolov + Geese & Kevin Xiao + Mr. Swag
+// APCS pd8
+// HW69 -- making sense
+// 2022-03-02
+// time spent: 0.5 hrs
+
+Mean execution times for boards of size n*n:
+n=5   83s    across 2 executions
+n=6   128s    across 3 execution
+n=7   computed for more than a minute    across 1 executions
+n=8   computed for more than 5 minutes    across 1 executions
+
+
+q0: From any starting position, can an open tour always be found? Explain.
+
+	As long as the board is big enough, there probably will always be an open tour that can be found, as having even one solution of the board means
+	that you can theoretically find it from any starting position. After all, it doesn't matter which square you start with, because at the end of the day
+	all the squares are going to be passed through.
+
+q1: Same, but for closed tour.
+
+	Much like open tours, it doesn't matter which square you start at, as at the end of the day all of the squares are going to be passed through.
+
+q2: How do you explain the increase in execution time as n increases?
+
+	As the board increases, the amount of valid moves the knight piece can make increases exponentially. 
+	This has to do with the fact that the area of the board itself increases really quickly, 
+	so with more squares to check every turn the number of turns becomes too big fast.
+
+q3: Thoughts on optimization?
+
+	It's definitely possible, though it would involve some clever algorithms which so far eludes us. Perhaps only moving the knight to positions on the board which don't
+	have a lot of next moves available? That way there is some optimization happening at the beginning of the backtracking algorithm.
