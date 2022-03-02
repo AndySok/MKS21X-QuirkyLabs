@@ -73,7 +73,7 @@ public class KnightTour
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //for fixed starting location, use line below:
     //if(n<8) tf.findTour( 4, 4, 1 );
-    //else tf.findTour( 4, 4, 1 );
+    //else tf.findTour( 2, 2, 1 );
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -204,8 +204,8 @@ class TourFinder
        *     g . . . b
        *     . h . a .
       ******************************************/
-      int[] xOffset = {-2, -1, 1, 2, 2, 1, -1, -2};
-      int[] yOffset = {1, 2, 2, 1, -1, -2, -2, -1};
+      int[] xOffset = {1, 2, 2, 1, -1, -2, -2, -1};
+      int[] yOffset = {-2, -1, 1, 2, 2, 1, -1, -2};
       for(int i=0;i<8;i++){
           findTour(x+xOffset[i], y+yOffset[i], moves+1);
       }
