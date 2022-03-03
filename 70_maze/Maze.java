@@ -39,7 +39,7 @@ import java.util.*;
 
 class MazeSolver
 {
-  final private int FRAME_DELAY = 500;
+  final private int FRAME_DELAY = 50;
 
   private char[][] _maze;
   private int h, w; // height, width of maze
@@ -199,11 +199,17 @@ public class Maze
 
     //drop hero into the maze (coords must be on path)
     // ThinkerTODO: comment next line out when ready to randomize startpos
-    ms.solve( 3, 4 );
+    //ms.solve( 3, 4 );
 
     //drop our hero into maze at random location on path
     // YOUR RANDOM-POSITION-GENERATOR CODE HERE
-    //ms.solve( startX, startY );
+    int startX = (int)(Math.random()*25);
+    int startY = (int)(Math.random()*80);
+    while(!(ms.onPath(startX, startY))){
+      startX = (int)(Math.random()*25);
+      startY = (int)(Math.random()*80);
+    }
+    ms.solve( startX, startY );
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
