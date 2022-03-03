@@ -31,3 +31,9 @@ q3: Thoughts on optimization?
 
 	It's definitely possible, though it would involve some clever algorithms which so far eludes us. Perhaps only moving the knight to positions on the board which don't
 	have a lot of next moves available? That way there is some optimization happening at the beginning of the backtracking algorithm.
+
+ALGO
+1. start from the end
+2. mark the current space as cleared
+3. go left, up, down, right. if unable to do so because the space is clear or not empty, backtrack to a previous position
+4. keep going until you reach the end
