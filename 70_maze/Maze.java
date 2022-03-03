@@ -198,7 +198,6 @@ public class Maze
     System.out.println( ms );
 
     //drop hero into the maze (coords must be on path)
-    // ThinkerTODO: comment next line out when ready to randomize startpos
     //ms.solve( 3, 4 );
 
     //drop our hero into maze at random location on path
