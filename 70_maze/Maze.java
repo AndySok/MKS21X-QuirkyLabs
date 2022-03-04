@@ -1,4 +1,4 @@
-// Team Fred - Andrey Sokolov + Geese, Tasnim Chowdury + duck1, Abdullah Faruque + duck2
+// Team Fred - Andrey Sokolov + Geese, Tasnim Chowdury + MARY, Abdullah Faruque + Joemama
 // APCS pd8
 // HW69 -- maze solving (blind, depth-first)
 // 2022-03-03
