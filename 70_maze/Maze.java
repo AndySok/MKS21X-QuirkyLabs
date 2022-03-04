@@ -1,8 +1,8 @@
-// Team Alpha Star - Andrey Sokolov + Geese & Kevin Xiao + Mr. Swag
+// Team Fred - Andrey Sokolov + Geese, Tasnim Chowdury + duck1, Abdullah Faruque + duck2
 // APCS pd8
 // HW69 -- maze solving (blind, depth-first)
 // 2022-03-03
-// time spent:  1hrs
+// time spent: 1hrs
 
 /***
  * SKELETON for
