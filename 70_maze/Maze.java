@@ -136,32 +136,36 @@ class MazeSolver
    **/
   public void solve( int x, int y )
   {
-    delay( FRAME_DELAY ); //slow it down enough to be followable
-    //primary base case - if you reached the end, mark the maze as solved
-    if ( _maze[y][x] == EXIT ) {
-      _maze[y][x] = HERO;
-      System.out.println("you found the exit!");
-      _solved = true;
-      System.exit(0);
-    }
-    //other base cases - you reached a dead end
-    else if ( _maze[y][x] == WALL || _maze[y][x] == VISITED_PATH) {
-      return;
-    }
-    //otherwise, recursively solve maze from next pos over,
-    //after marking current location
-    else {
-      _maze[y][x] = HERO;
-      System.out.println( this ); //refresh screen
-      _maze[y][x] = VISITED_PATH;
-      int[] xOffset = {1, 0, -1, 0};
-      int[] yOffset = {0, -1, 0, 1};
-      for(int i = 0; i<=3; i++){
-        solve(x+xOffset[i], y+yOffset[i]);
+    try{
+      delay( FRAME_DELAY ); //slow it down enough to be followable
+      //primary base case - if you reached the end, mark the maze as solved
+      if ( _maze[y][x] == EXIT ) {
+        _maze[y][x] = HERO;
+        System.out.println("you found the exit!");
+        _solved = true;
+        System.exit(0);
       }
-      _maze[y][x] = HERO;
-      System.out.println( this ); //refresh screen
-      _maze[y][x] = VISITED_PATH;
+      //other base cases - you reached a dead end
+      else if ( _maze[y][x] == WALL || _maze[y][x] == VISITED_PATH) {
+        return;
+      }
+      //otherwise, recursively solve maze from next pos over,
+      //after marking current location
+      else if( _maze[y][x] == PATH) {
+        _maze[y][x] = HERO;
+        System.out.println( this ); //refresh screen
+        _maze[y][x] = VISITED_PATH;
+        int[] xOffset = {1, 0, -1, 0};
+        int[] yOffset = {0, -1, 0, 1};
+        for(int i = 0; i<=3; i++){
+          solve(x+xOffset[i], y+yOffset[i]);
+        }
+        _maze[y][x] = HERO;
+        System.out.println( this ); //refresh screen
+        _maze[y][x] = VISITED_PATH;
+        return;
+      }
+    } catch(ArrayIndexOutOfBoundsException e){
       return;
     }
   }
@@ -199,7 +203,6 @@ public class Maze
 
     //drop hero into the maze (coords must be on path)
     //ms.solve( 3, 4 );
-
     //drop our hero into maze at random location on path
     // YOUR RANDOM-POSITION-GENERATOR CODE HERE
     int startX = (int)(Math.random()*25);
