@@ -1,0 +1,11 @@
+// Team Alpha Star - Andrey Sokolov + Geese & Kevin Xiao + Mr. Swag
+// APCS pd8
+// HW 71 - Whut Dis
+// 2022-03-07
+// time spent: 1 hrs
+
+DISCO:
+
+
+QCC:
+
