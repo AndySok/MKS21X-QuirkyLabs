@@ -35,7 +35,7 @@ public class FastSelect{
    for( int i = 0; i < d.length; i++ ) {
      tmp = d[i];
      swapPos = i + (int)( (d.length - i) * Math.random() );
-     swap( i, swapPos, d );
+     swap(d, i, swapPos);
    }
  } 
  
@@ -64,14 +64,30 @@ public class FastSelect{
   } 
  //----------------------------HELPERS END----------------------------//
  
- public static int FastSelect(){
-   //Categorize the execution time of your algorithm using Big-Oh notation.
+ public static int FastSelect(int y, int[] arr){
+  //Categorize the execution time of your algorithm using Big-Oh notation.
+  return arr[y];
  }
   
  public static void main(String[] args){
-   //build test calls
+    //init test arrays of magic numbers
+    int[] arr1 = {8,21,17,69,343};
+    int[] arr3 = {1,28,33,4982,37};
+    int[] arr4 = {5,4,17,9000,6};
+    int[] arr5 = {3,0,16,599,1024};
+    // run FastSelect on each array,
+    // holding a & b fixed, varying c...
+    System.out.println("arr1: ");
+    Arrays.toString(arr1);
+    System.out.println("Select i-th smallest value of the array");
+    for(int i=0;i<arr1.length;i++){
+      System.out.println(FastSelect(i, arr1));
+    }
+    System.out.println("-----------------------");
+  
+  //build test calls
    
-   //Describe best- and worst-case scenarios and Big-O classification for each. 
-   //Include test calls in your main method illustrating each.
+  //Describe best- and worst-case scenarios and Big-O classification for each. 
+  //Include test calls in your main method illustrating each.
  }
 }
