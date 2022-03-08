@@ -38,6 +38,19 @@ public class Mysterion{
         System.out.println(Arrays.toString(arr));
     }
 
+   /**
+   * int mysterion(int[],int,int,int)
+   * The Mysterion is an algorithm which takes in an array, and then sorts the array based on whether the values in the array are greater than
+   *  arr[c], or lower than arr[c].
+   * 
+   * @param arr the array which is being quicksorted.
+   * @param a - the starting position at which sort initiates
+   * @param b - the ending position of the sort
+   * @param c - the "pivot" point of the sort
+   * @return int 
+   *
+   */
+    
     public static int[] mysterion(int[] arr, int a, int c, int b){
         int start = 0; 
         int boundary = arr[c];
