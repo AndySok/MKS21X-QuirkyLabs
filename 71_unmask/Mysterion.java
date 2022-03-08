@@ -47,7 +47,7 @@ public class Mysterion{
    * @param a - the starting position at which sort initiates
    * @param b - the ending position of the sort
    * @param c - the "pivot" point of the sort
-   * @return int 
+   * @return int[] - the "quicksorted" array 
    *
    */
     
