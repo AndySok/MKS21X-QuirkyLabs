@@ -125,12 +125,10 @@ public class FastSelect{
       System.out.println(FastSelect(i, arr1));
     }
     System.out.println("-----------------------");
-    System.out.println("BEST CASE: ALREADY SORTED - arr2: ");
+    System.out.println("BEST CASE: the PIVOT point falls on the SORTED value - arr2: ");
     Arrays.toString(arr2);
     System.out.println("Select i-th smallest value of the array");
-    for(int i=0;i<arr1.length;i++){
-      System.out.println(FastSelect(i, arr2));
-    }
+    System.out.println(FastSelect(4, arr2));
     System.out.println("-----------------------");
     System.out.println("BEST CASE: INVERSELY SORTED - arr3: ");
     Arrays.toString(arr3);
