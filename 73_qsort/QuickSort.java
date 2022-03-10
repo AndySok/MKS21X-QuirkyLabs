@@ -1,21 +1,34 @@
-//Clyde Sinclair
+//Team Alpha Star - Andrey Sokolov + Geese & Kevin Xiao + Mr. Swag
 //APCS pd8
 //HW72 -- QuickSort
 //2022-03-09w
 //time spent: 1h
+
+// DISCO
+// The bound in the loop should be high instead of d.length - 1. (IT TOOK US 5 MINUTES TO FIGURE THAT OUT)
+// Duplicates have to be taken care of in partition code.
 
 /***
  * class QuickSort
  * Implements quicksort algo to sort an array of ints in place
  *
  * 1. Summary of QuickSort algorithm:
- * QSort(arr):
+ * QSort(arr): Summary of QuickSort algorithm: The algorithm is set to partition the array according to a pivot position,
+ * and the array will be ordered with the least elements at the left and the greater at the right.
+ * Then we recursively call this method to then partition again based on a new pivot position and then the array will eventually be sorted from least to greatest.
  *
  * 2a. Worst pivot choice and associated run time:
+ * Worst pivot choice and associated run time: O(n^2) because it would take two for loops to sort an array that needs one or more partition,
+ * the worst pivot choice is random because you do not know if this value will allow the array to be sorted quickly enough and it will take more time.
  *
  * 2b. Best pivot choice and associated run time:
+ * Best pivot choice and associated run time: O(n) and high because if it compares
+ * it to its highest value and goes through the array once through, the array will
+ * be sorted with only one for loop necessary.
  *
  * 3. Approach to handling duplicate values in array:
+ * When you check if the element at index i is less than or equal to b,
+ * you swap both lesser values and duplicates. If you swap both, the final pivot position be right.
  *
  **/
 public class QuickSort
@@ -68,23 +81,30 @@ public class QuickSort
    */
   public static void qsort( int[] d )
   {
-    qsortHelper(d);
+    qsortHelper(d, 0, d.length-1);
   }
 
   //you may need a helper method...
-  public static int[] qsortHelper(int[] d){
-    if(d.length == 1) return d;
-    int split = d.length / 2;
+  public static int[] qsortHelper(int[] d, int low, int high){
+    //base case: array is sorted
+    //if(d.length == 1) return d;
+    if (low<high) {
+      //pivot is the upper bound value
+      int pivot = Partition.partition(d, low, high, high);
+      //smaller half
+      qsortHelper(d, low, pivot-1);
+      //larger half
+      qsortHelper(d, pivot+1, high);
+    }
     return d;
   }
 
-  
+
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y) 
 
     //get-it-up-and-running, static test case:
     int [] arr1 = {7,1,5,12,3};
@@ -110,10 +130,6 @@ public class QuickSort
     qsort( arrN );
     System.out.println("arrN after sort: " );
     printArr(arrN);
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-
-    /*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y)
 
     //get-it-up-and-running, static test case w/ dupes:
     int [] arr2 = {7,1,5,12,3,7};
@@ -140,6 +156,7 @@ public class QuickSort
     qsort( arrMatey );
     System.out.println("arrMatey after sort: " );
     printArr(arrMatey);
+    /*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y)
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
   }//end main
