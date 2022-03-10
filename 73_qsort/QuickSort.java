@@ -1,8 +1,8 @@
 //Clyde Sinclair
-//APCS pd0
+//APCS pd8
 //HW72 -- QuickSort
 //2022-03-09w
-//time spent: _h
+//time spent: 1h
 
 /***
  * class QuickSort
@@ -18,7 +18,6 @@
  * 3. Approach to handling duplicate values in array:
  *
  **/
-
 public class QuickSort
 {
   //--------------v  HELPER METHODS  v--------------
@@ -69,11 +68,15 @@ public class QuickSort
    */
   public static void qsort( int[] d )
   {
-
+    qsortHelper(d);
   }
 
   //you may need a helper method...
-
+  public static int[] qsortHelper(int[] d){
+    if(d.length == 1) return d;
+    int split = d.length / 2;
+    return d;
+  }
 
   
 
