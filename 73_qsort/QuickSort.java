@@ -1,4 +1,4 @@
-//Team Alpha Star - Andrey Sokolov + Geese & Kevin Xiao + Mr. Swag
+//Team Fred - Andrey Sokolov + Geese, Rin Fukuoka + Tape, Kartik Vanjani + Krish
 //APCS pd8
 //HW72 -- QuickSort
 //2022-03-09w
