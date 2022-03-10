@@ -1,5 +1,5 @@
-// Team Alpha Star - Andrey Sokolov + Geese & Kevin Xiao + Mr. Swag
-// APCS pd8
+//Team Fred - Andrey Sokolov + Geese, Rin Fukuoka + Tape, Kartik Vanjani + Krish
+//APCS pd8
 // Code from HW 71 - Whut Dis
 // 2022-03-07
 // time spent: 0.5 hrs
