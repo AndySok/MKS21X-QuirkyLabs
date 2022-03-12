@@ -5,8 +5,12 @@
 //time spent: 1h
 
 // DISCO
+// - This wasn't as hard as we though it was going to be!
+// - Despite feeling like it wouldn't work, using LLNode for cdr works like a charm.
 
 // QCC
+// - How exactly should the toString() return the nodes?
+// - Will we be able to rename this class at a later date?
 
 //Node - Implemented as foretold in the UML Design Doc
 public class LLNode{
