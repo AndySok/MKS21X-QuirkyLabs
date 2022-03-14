@@ -82,7 +82,16 @@ public class LList implements List //interface def must be in this dir
   // override inherited toString
   public String toString()
   {
-    return "{ " + _head.getCargo() + _head.getNext() + " }";
+    String output = "{ ";
+    LLNode temp = this._head;
+    for(int i=0;i<size();i++){
+      output+= temp.getCargo();
+      if(i<size()) {
+        temp = temp.getNext();
+        output+= ", ";
+      }
+    }
+    return output + " }";
   }
 
 
@@ -97,12 +106,12 @@ public class LList implements List //interface def must be in this dir
     james.add("beat");
     System.out.println( james );
     System.out.println( "size: " + james.size() );
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     james.add("a");
     System.out.println( james );
     System.out.println( "size: " + james.size() );
 
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     james.add("need");
     System.out.println( james );
     System.out.println( "size: " + james.size() );
