@@ -12,45 +12,95 @@
 // - How exactly should the toString() return the nodes?
 // - Will we be able to rename this class at a later date?
 
-//Node - Implemented as foretold in the UML Design Doc
-public class LLNode{
-    private String cargo;
-    private LLNode cdr;
-    //----------------Constructors-----------------//
-    public LLNode(String cargo, LLNode cdr){
-        this.cargo = cargo;
-        this.cdr = cdr;
-    }
 
-    public LLNode(String cargo){
-        this.cargo = cargo;
-        this.cdr = null;
-    }
-    //--------------End Constructors---------------//
+public class LLNode
+{
+  //instance vars
+  private String cargo;
+  private LLNode cdr;
 
-    //------------------Mutators-------------------//
-    public void setCargo(String newCargo){
-        this.cargo = newCargo;
-    }
+  // constructor
+  public LLNode( String value, LLNode next )
+  {
+    this.cargo = value;
+    this.cdr = next;
 
-    public void setNode(LLNode cdr){
-        this.cdr = cdr;
-    } 
-    //----------------End Mutators-----------------//
+  }
 
-    //------------------Accessors------------------//
-    public String getCargo(){
-        return this.cargo;
-    }
-    public LLNode getCdr(){
-        return this.cdr;
-    }
-    public String get(){
-        return "{ " + getCargo() + ", " + cdr.toString() + " }";
-    }
+  public LLNode(String cargo) {
+    this.cargo = cargo;
+    this.cdr = null;
+  }
 
-    public String toString(){
-        return "{ " + getCargo() + ", " + getCdr() + " }";
-    }
-    //----------------End Accessors----------------//
-}
+
+  //--------------v  ACCESSORS  v--------------
+  public String getCargo()
+  {
+    return this.cargo;
+  }
+
+  public LLNode getNext()
+  {
+    return this.cdr;
+  }
+  //--------------^  ACCESSORS  ^--------------
+
+
+  //--------------v  MUTATORS  v--------------
+  public String setCargo( String newCargo )
+  {
+    String temp = this.cargo;
+    this.cargo = newCargo;
+    return temp;
+  }
+
+  public LLNode setNext( LLNode newNext )
+  {
+    LLNode temp = this.cdr;
+    this.cdr = newNext;
+    return temp;
+  }
+  //--------------^  MUTATORS  ^--------------
+
+
+  // override inherited toString
+  public String toString()
+  {
+    return cargo;
+
+  }
+
+
+  //main method for testing
+  public static void main( String[] args )
+  {
+
+    //Below is an exercise in creating a linked list...
+
+    //Create a node
+    LLNode first = new LLNode( "cat", null );
+
+    //Create a new node after the first
+    first.setNext( new LLNode( "dog", null ) );
+
+    //Create a third node after the second
+    first.getNext().setNext( new LLNode( "cow", null ) );
+    System.out.println(first.toString());
+
+    //A naive list traversal, has side effects.... ??
+       while( first != null ) {
+       System.out.println( first );
+       first = first.getNext();
+       }
+
+
+    //Q: when head ptr moves to next node in list, what happens to the node it just left?
+
+    //...so better: ?
+    //
+    //
+    //
+
+  }//end main
+
+}//end class LLNode
