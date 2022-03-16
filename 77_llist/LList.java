@@ -63,8 +63,7 @@ public class LList implements List //interface def must be in this dir
 		LLNode _new = new LLNode( newVal, null );
     if(_size == 0) add( newVal );
     else if(index == 0){
-      LLNode _temp = _head;
-      _new.setNext(_temp);
+      _new.setNext(_head);
       _head = _new;
       _size++;
     }
@@ -92,7 +91,7 @@ public class LList implements List //interface def must be in this dir
           _temp = _temp.getNext();
         }
         _temp.setNext(null);
-      }
+      } 
     	else {
         LLNode _temp = _head;
         LLNode _temp2 = _head;
@@ -207,17 +206,17 @@ public class LList implements List //interface def must be in this dir
     james.add( 0, "hi" );
     System.out.println( james );
 
-    james.add( 3, "hello" );
-    System.out.println( james );
+//     james.add( 3, "hello" );
+//     System.out.println( james );
 
-    james.remove(0);
-    System.out.println( james );
+//     james.remove(0);
+//     System.out.println( james );
 
-    james.remove(4);
-    System.out.println( james );
+//     james.remove(4);
+//     System.out.println( james );
 
-    james.remove(2);
-    System.out.println( james );
+//     james.remove(2);
+//     System.out.println( james );
 
 
   }
