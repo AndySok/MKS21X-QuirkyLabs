@@ -1,10 +1,9 @@
 /*
  Team Fred (Andrey Sokolov + Geese, Rin Fukuoka + Tape, Kartik Vanjani + Krish)
  APCS PD8
- HW 77
- 2022-03-14
- Spent: 
- Quantity of KtS
+ HW 78: Double Up
+ 2022-03-16
+ Spent: 0.5 hrs
 */
 
 /*
@@ -16,16 +15,17 @@
  * - Should a size instance variable always be initialized for a class with Lists or Arrays?
  * 
  * ALGO ADD
- * - If the size of the list is 0, invoke the simpler add method
+ * - If the size of the list is 0, or index is 0, invoke the simpler add method
  * - Create a _new node with the value of newVal and a next of null
- * - If you are trying to add to index 0, simply set _new as the _head of the list and set the rest of the values after _new
- * - Otherwise, create two references to the list (_temp1 and _temp2), and set the _new node between the two.
+ * - create two references to the list (_temp1 and _temp2), and set the _new node between the two. Make sure to create a _prev for the new node
  * - increment the size of the List by 1
  * 
  * ALGO REM
  * - If the input index is 0, simply take the next Node and the rest (cdr) by invoking getNext() 
  * - Otherwise, if the index you need to remove is at the end, simply set the next of the previous DLLNode equal to null
- * - If all above fails, find the Nodes inbetween the one you want to remove, and set the latter one to be the next of the former
+ * - If all above fails, go to the node you want to remove
+ * - setNext() the node that comes before the removed node to the getNext() of the removed node
+ * - setPrev() the node that comes after it to the getPrev() of the removed node 
  * - At the end, reduce size by 1
 */
 
@@ -94,17 +94,11 @@ public class LList implements List //interface def must be in this dir
       } 
     	else {
         DLLNode _temp = _head;
-        DLLNode _temp2 = _head;
-        for(int i=0; i<index-1;i++){
+        for(int i=0; i<index;i++){
           _temp = _temp.getNext();
         }
-        //System.out.println(_temp);
-        for(int i=0; i<index+1;i++){
-          _temp2 = _temp2.getNext();
-        }
-        //System.out.println(_temp2);
-
-        _temp.setNext(_temp2);
+        _temp.getPrev().setNext(_temp.getNext());
+        _temp.getNext().setPrev(_temp.getPrev());
       }
       _size--;
     	return original;
@@ -208,21 +202,22 @@ public class LList implements List //interface def must be in this dir
      james.add( 4, "hello" );
      System.out.println( james );
 
-    DLLNode last = james._head;
-    for(int i=0;i<james.size();i++){
-      System.out.println( last.getPrev() );
-      System.out.println( last.getCargo() );
-      last = last.getNext();
-    }
+     james.remove(0);
+    System.out.println( james );
 
-//     james.remove(0);
-//     System.out.println( james );
+     james.remove(4);
+     System.out.println( james );
 
-//     james.remove(4);
-//     System.out.println( james );
+     james.remove(2);
+     System.out.println( james );
 
-//     james.remove(2);
-//     System.out.println( james );
+     DLLNode last = james._head;
+     for(int i=0;i<james.size();i++){
+       System.out.println( "element: " + last);
+       System.out.println( "previous: " + last.getPrev() );
+       System.out.println( );
+       last = last.getNext();
+     }
 
 
   }
