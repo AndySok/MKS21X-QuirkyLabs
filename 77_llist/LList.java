@@ -8,9 +8,22 @@
 */
 /*
  * DISCO
+ * - The add and remove methods actually have a lot of differences in their implementations.
+ * - Returning size is a good thing we noticed because we established that as an instance variable, and the time complexity is O(1) instead of O(n)
  * QCC
+ * - Would we traverse if there was no size instance variable?
+ * - Should a size instance variable always be initialized for a class with Lists or Arrays?
+ * 
  * ALGO ADD
+ * - If the size of the list is 0, invoke the simpler add method
+ * - Create a _new node with the value of newVal and a next of null
+ * - If you are trying to add to index 0, simply set _new as the _head of the list and set the rest of the values after _new
+ * - Otherwise, create two references to the list (_temp1 and _temp2), and set the _new node between the two.
+ * - increment the size of the List by 1
+ *
  * ALGO REM
+ * - 
+ * - 
 */
 
 /***
