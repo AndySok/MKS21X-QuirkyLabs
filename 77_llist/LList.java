@@ -6,6 +6,7 @@
  Spent: 
  Quantity of KtS
 */
+
 /*
  * DISCO
  * - The add and remove methods actually have a lot of differences in their implementations.
@@ -20,10 +21,12 @@
  * - If you are trying to add to index 0, simply set _new as the _head of the list and set the rest of the values after _new
  * - Otherwise, create two references to the list (_temp1 and _temp2), and set the _new node between the two.
  * - increment the size of the List by 1
- *
+ * 
  * ALGO REM
- * - 
- * - 
+ * - If the input index is 0, simply take the next Node and the rest (cdr) by invoking getNext() 
+ * - Otherwise, if the index you need to remove is at the end, simply set the next of the previous LLNode equal to null
+ * - If all above fails, find the Nodes inbetween the one you want to remove, and set the latter one to be the next of the former
+ * - At the end, reduce size by 1
 */
 
 /***
@@ -57,19 +60,20 @@ public class LList implements List //interface def must be in this dir
   }
 
   public void add( int index, String newVal ){
-    LLNode _new = new LLNode( newVal, null );
+		LLNode _new = new LLNode( newVal, null );
     if(_size == 0) add( newVal );
     else if(index == 0){
       LLNode _temp = _head;
       _new.setNext(_temp);
       _head = _new;
+      _size++;
     }
     else{
-      LLNode _temp = _head;
-    	for(int i=0; i<index; i++){
+      LLNode _temp = _head; // the latter half of LList the connected to _new
+    	for(int i=0; i<index; i++){ 
       	_temp = _temp.getNext();
     	}
-      _new.setNext(_temp); // the latter half of LList the connected to _new
+      _new.setNext(_temp); // the previous half of LList the connected to _new
       LLNode _temp2 = _head;
       for(int i=0; i<index-1;i++){
         _temp2 = _temp2.getNext();
@@ -81,15 +85,30 @@ public class LList implements List //interface def must be in this dir
 
   public String remove(int index){
     String original = this.get(index);
-    
-    LLNode _temp = _head;  
-    for (int i = 0; i<index; i++) {
-      _head.setNext(_temp); 
-      _temp = _temp.getNext(); 
-    }
-    _head = _head.setNext(_temp.getNext().getNext());
-    _size--;
-    return original; 
+        if (index == 0) _head = _head.getNext(); //check if you only need to get rid of the first one
+    	else if( index == _size-1) { //check if you need to get rid of the end
+        LLNode _temp = _head;
+        for(int i=0;i<index-1;i++){
+          _temp = _temp.getNext();
+        }
+        _temp.setNext(null);
+      }
+    	else {
+        LLNode _temp = _head;
+        LLNode _temp2 = _head;
+        for(int i=0; i<index-1;i++){
+          _temp = _temp.getNext();
+        }
+        System.out.println(_temp);
+        for(int i=0; i<index+1;i++){
+          _temp2 = _temp2.getNext();
+        }
+        System.out.println(_temp2);
+
+        _temp.setNext(_temp2);
+      }
+      _size--;
+    	return original;
   }
     
     
@@ -187,6 +206,20 @@ public class LList implements List //interface def must be in this dir
 
     james.add( 0, "hi" );
     System.out.println( james );
+
+    james.add( 3, "hello" );
+    System.out.println( james );
+
+    james.remove(0);
+    System.out.println( james );
+
+    james.remove(4);
+    System.out.println( james );
+
+    james.remove(2);
+    System.out.println( james );
+
+
   }
 
 }//end class LList
