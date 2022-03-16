@@ -98,11 +98,11 @@ public class LList implements List //interface def must be in this dir
         for(int i=0; i<index-1;i++){
           _temp = _temp.getNext();
         }
-        System.out.println(_temp);
+        //System.out.println(_temp);
         for(int i=0; i<index+1;i++){
           _temp2 = _temp2.getNext();
         }
-        System.out.println(_temp2);
+        //System.out.println(_temp2);
 
         _temp.setNext(_temp2);
       }
