@@ -68,16 +68,11 @@ public class LList implements List //interface def must be in this dir
       _size++;
     }
     else{
-      DLLNode _temp = _head; // the latter half of LList the connected to _new
-    	for(int i=0; i<index; i++){ 
-      	_temp = _temp.getNext();
-    	}
-      _new.setNext(_temp); // the previous half of LList the connected to _new
-      DLLNode _temp2 = _head;
-      for(int i=0; i<index-1;i++){
-        _temp2 = _temp2.getNext();
+      DLLNode _position = _head;
+      for(int i=0; i<index;i++){
+        _position = _position.getNext();
       }
-    	_temp2.setNext(_new);
+      _position.setNext(new DLLNode(_position, newVal, _position.getNext()));
     	_size++;
     }
   }

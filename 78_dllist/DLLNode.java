@@ -21,7 +21,7 @@ public class DLLNode
   private DLLNode cdr;
 
   // constructor
-  public DLLNode( LLNode prev, String value, DLLNode next )
+  public DLLNode( DLLNode prev, String value, DLLNode next )
   {
     this.prevcdr = prev;
     this.cargo = value;
@@ -44,7 +44,7 @@ public class DLLNode
 
   //--------------v  ACCESSORS  v--------------
   public DLLNode getPrev(){
-    return this.prev;
+    return this.prevcdr;
   }
   
   public String getCargo()
@@ -60,12 +60,12 @@ public class DLLNode
 
 
   //--------------v  MUTATORS  v--------------
-  public String setPrev( DLLNode newPrev){
+  public DLLNode setPrev( DLLNode newPrev){
     DLLNode temp = this.prevcdr;
     this.prevcdr = newPrev;
     return temp;
   }
-  
+
   public String setCargo( String newCargo )
   {
     String temp = this.cargo;
