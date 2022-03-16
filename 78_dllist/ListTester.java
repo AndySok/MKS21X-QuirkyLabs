@@ -19,19 +19,19 @@ public class ListTester
 
     wu.add("GZA");
     System.out.println(wu);
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    System.out.println(wu);
     wu.add("ODB");
-
     System.out.println(wu);
+
     wu.add("Inspectah Deck");
-
     System.out.println(wu);
+
     wu.add("Raekwon the Chef");
-
     System.out.println(wu);
+
     wu.add("U-God");
+    System.out.println(wu);
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     System.out.println(wu);
     wu.add("Ghostface");

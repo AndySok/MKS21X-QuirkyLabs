@@ -53,20 +53,25 @@ public class LList implements List //interface def must be in this dir
 
   public boolean add( String newVal )
   {
-    DLLNode tmp = new DLLNode( newVal, _head );
-    _head = tmp;
-    _size++;
-    return true;
+    if(_size == 0){
+      DLLNode tmp = new DLLNode( newVal, _head );
+      _head = tmp;
+      _size++;
+      return true;
+    }
+    else{
+      DLLNode tmp = new DLLNode( newVal, _head );
+      DLLNode lastHead = _head;
+      _head = tmp;
+      lastHead.setPrev(_head);
+      _size++;
+      return true;
+    }
   }
 
   public void add( int index, String newVal ){
 		DLLNode _new = new DLLNode( newVal, null );
-    if(_size == 0) add( newVal );
-    else if(index == 0){
-      _new.setNext(_head);
-      _head = _new;
-      _size++;
-    }
+    if(_size == 0 || index == 0) add( newVal );
     else{
       DLLNode _position = _head;
       for(int i=0; i<index;i++){
@@ -79,7 +84,7 @@ public class LList implements List //interface def must be in this dir
 
   public String remove(int index){
     String original = this.get(index);
-        if (index == 0) _head = _head.getNext(); //check if you only need to get rid of the first one
+      if (index == 0) _head = _head.getNext(); //check if you only need to get rid of the first one
     	else if( index == _size-1) { //check if you need to get rid of the end
         DLLNode _temp = _head;
         for(int i=0;i<index-1;i++){
@@ -146,7 +151,6 @@ public class LList implements List //interface def must be in this dir
     return oldVal;
   }
 
-
   //return number of nodes in list
   public int size() { return _size; }
 
@@ -201,8 +205,15 @@ public class LList implements List //interface def must be in this dir
     james.add( 0, "hi" );
     System.out.println( james );
 
-     james.add( 5, "hello" );
+     james.add( 4, "hello" );
      System.out.println( james );
+
+    DLLNode last = james._head;
+    for(int i=0;i<james.size();i++){
+      System.out.println( last.getPrev() );
+      System.out.println( last.getCargo() );
+      last = last.getNext();
+    }
 
 //     james.remove(0);
 //     System.out.println( james );
