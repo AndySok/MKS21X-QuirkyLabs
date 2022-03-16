@@ -8,8 +8,8 @@
 
 /*
  * DISCO
- * - The add and remove methods actually have a lot of differences in their implementations.
- * - Returning size is a good thing we noticed because we established that as an instance variable, and the time complexity is O(1) instead of O(n)
+ * - It takes a lot less time to amend algorithms as opposed to write them
+ * - Presenting today made our code a lot cleaner and optimized!
  * QCC
  * - Would we traverse if there was no size instance variable?
  * - Should a size instance variable always be initialized for a class with Lists or Arrays?
