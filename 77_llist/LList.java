@@ -206,8 +206,8 @@ public class LList implements List //interface def must be in this dir
     james.add( 0, "hi" );
     System.out.println( james );
 
-//     james.add( 3, "hello" );
-//     System.out.println( james );
+     james.add( 5, "hello" );
+     System.out.println( james );
 
 //     james.remove(0);
 //     System.out.println( james );
