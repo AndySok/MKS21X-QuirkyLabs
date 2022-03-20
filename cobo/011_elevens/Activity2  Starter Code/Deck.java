@@ -30,18 +30,15 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		ArrayList cardStorage = new ArrayList();
+		cards = new ArrayList<Card>();
 		for (int j = 0; j < suits.length; j++){
-			card.set(1, suits[i]);
 			for (int i = 0; i < ranks.length; i++){
-							card.set(0, rank[i]);
-							card.set(2, values[i]);
+				cards.add(new Card(ranks[i], suits[j], values[i])); //adds a card straight into storage
+
+			}
 		}
-		cardStorage.add(card);
+		size = cards.size();
 	}
-
-	}
-
 
 	/**
 	 * Determines if this deck is empty (no undealt cards).
@@ -49,6 +46,7 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return this.size() == 0;
 	}
 
 	/**
@@ -56,6 +54,7 @@ public class Deck {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
+		return this.size;
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 	}
 
@@ -73,6 +72,11 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
+		if(this.size() != 0){
+			Card output = this.cards.get(this.size()-1);
+			this.size--;
+			return output;
+		} else return null;
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 	}
 
@@ -96,12 +100,12 @@ public class Deck {
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = cards.size() - 1; k >= size; k--) {
+		for (int k = this.size() - 1; k >= size; k--) {
 			rtn = rtn + cards.get(k);
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
-			if ((k - cards.size()) % 2 == 0) {
+			if ((k - this.size()) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
 				rtn = rtn + "\n";
 			}
