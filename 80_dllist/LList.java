@@ -1,18 +1,16 @@
 /*
  Team Fred (Andrey Sokolov + Geese, Rin Fukuoka + Tape, Kartik Vanjani + Krish)
  APCS PD8
- HW 78: Double Up
+ HW 80: Find and Replace
  2022-03-16
  Spent: 0.5 hrs
 */
 
 /*
  * DISCO
- * - It takes a lot less time to amend algorithms as opposed to write them
- * - Presenting today made our code a lot cleaner and optimized!
+ * - Fairly straight task. Find and replace is a really good friend.
  * QCC
- * - Would we traverse if there was no size instance variable?
- * - Should a size instance variable always be initialized for a class with Lists or Arrays?
+ * - What would happen if I were to hypothetically make T and actual class?
  *
  * ALGO ADD
  * - If the size of the list is 0, or index is 0, invoke the simpler add method
