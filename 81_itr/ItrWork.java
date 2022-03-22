@@ -34,7 +34,9 @@ public class ItrWork
   public static boolean foundA( Integer key,
                                 List<Integer> L )
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
+    for(int i=0;i<L.size();i++){
+      if(L.get(i) == key) return true;
+    } return false;
   }
 
   //explicitly using an iterator
@@ -42,7 +44,10 @@ public class ItrWork
   public static boolean foundB( Integer key,
                                 List<Integer> L )
   {
-    /*** YOUR IMPLEMENTATION HERE ***/
+    Iterator it = L.iterator();
+    while(it.hasNext()){
+      if(it.next() == key) return true;
+    } return false;
   }
 
   //using FOREACH loop
