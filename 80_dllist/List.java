@@ -11,7 +11,7 @@
  * ADD-AT-INDEX
  **/
 
-public interface List
+public interface List<T>
 {
   //add node to list, containing element T as its data
   public boolean add( T x );

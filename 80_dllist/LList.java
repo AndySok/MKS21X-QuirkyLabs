@@ -22,7 +22,7 @@
  *
  * ALGO REM
  * - If the input index is 0, simply take the next Node and the rest (cdr) by invoking getNext()
- * - Otherwise, if the index you need to remove is at the end, simply set the next of the previous DLLNode equal to null
+ * - Otherwise, if the index you need to remove is at the end, simply set the next of the previous DLLNode<T> equal to null
  * - If all above fails, go to the node you want to remove
  * - setNext() the node that comes before the removed node to the getNext() of the removed node
  * - setPrev() the node that comes after it to the getPrev() of the removed node
@@ -31,14 +31,14 @@
 
 /***
  * class LList
- * Implements a linked list of DLLNodes, each containing String data
+ * Implements a linked list of DLLNode<T>s, each containing String data
  **/
 
-public class LList implements List //interface def must be in this dir
+public class LList<T> implements List<T> //interface def must be in this dir
 {
 
   //instance vars
-  private DLLNode _head;
+  private DLLNode<T> _head;
   private int _size;
 
   // constructor -- initializes instance vars
@@ -51,17 +51,17 @@ public class LList implements List //interface def must be in this dir
 
   //--------------v  List interface methods  v--------------
 
-  public boolean add( String newVal )
+  public boolean add(T newVal)
   {
     if(_size == 0){
-      DLLNode tmp = new DLLNode( newVal, _head );
+      DLLNode<T> tmp = new DLLNode<T>( newVal, _head );
       _head = tmp;
       _size++;
       return true;
     }
     else{
-      DLLNode tmp = new DLLNode( newVal, _head );
-      DLLNode lastHead = _head;
+      DLLNode<T> tmp = new DLLNode<T>( newVal, _head );
+      DLLNode<T> lastHead = _head;
       _head = tmp;
       lastHead.setPrev(_head);
       _size++;
@@ -69,31 +69,31 @@ public class LList implements List //interface def must be in this dir
     }
   }
 
-  public void add( int index, String newVal ){
-		DLLNode _new = new DLLNode( newVal, null );
+  public void add( int index, T newVal ){
+		DLLNode<T> _new = new DLLNode<T>( newVal, null );
     if(_size == 0 || index == 0) add( newVal );
     else{
-      DLLNode _position = _head;
+      DLLNode<T> _position = _head;
       for(int i=0; i<index;i++){
         _position = _position.getNext();
       }
-      _position.setNext(new DLLNode(_position, newVal, _position.getNext()));
+      _position.setNext(new DLLNode<T>(_position, newVal, _position.getNext()));
     	_size++;
     }
   }
 
-  public String remove(int index){
-    String original = this.get(index);
+  public T remove(int index){
+    T original = this.get(index);
       if (index == 0) _head = _head.getNext(); //check if you only need to get rid of the first one
     	else if( index == _size-1) { //check if you need to get rid of the end
-        DLLNode _temp = _head;
+        DLLNode<T> _temp = _head;
         for(int i=0;i<index-1;i++){
           _temp = _temp.getNext();
         }
         _temp.setNext(null);
       }
     	else {
-        DLLNode _temp = _head;
+        DLLNode<T> _temp = _head;
         for(int i=0; i<index;i++){
           _temp = _temp.getNext();
         }
@@ -106,13 +106,13 @@ public class LList implements List //interface def must be in this dir
 
 
 
-  public String get( int index )
+  public T get( int index )
   {
     if ( index < 0 || index >= size() )
       throw new IndexOutOfBoundsException();
 
-    String retVal;
-    DLLNode tmp = _head; //create alias to head
+    T retVal;
+    DLLNode<T> tmp = _head; //create alias to head
 
     //walk to desired node
     for( int i=0; i < index; i++ )
@@ -124,20 +124,20 @@ public class LList implements List //interface def must be in this dir
   }
 
 
-  public String set( int index, String newVal )
+  public T set( int index, T newVal )
   {
 
     if ( index < 0 || index >= size() )
       throw new IndexOutOfBoundsException();
 
-    DLLNode tmp = _head; //create alias to head
+    DLLNode<T> tmp = _head; //create alias to head
 
     //walk to desired node
     for( int i=0; i < index; i++ )
       tmp = tmp.getNext();
 
     //store target node's cargo
-    String oldVal = tmp.getCargo();
+    T oldVal = tmp.getCargo();
 
     //modify target node's cargo
     tmp.setCargo( newVal );
@@ -155,9 +155,9 @@ public class LList implements List //interface def must be in this dir
   public String toString()
   {
     String retStr = "HEAD->";
-    DLLNode tmp = _head; //init tr
+    DLLNode<T> tmp = _head; //init tr
     while( tmp != null ) {
-	    retStr += tmp.getCargo() + "->";
+	    retStr += tmp.getCargo().toString() + "->";
 	    tmp = tmp.getNext();
     }
     retStr += "NULL";
@@ -168,7 +168,7 @@ public class LList implements List //interface def must be in this dir
   //main method for testing
   public static void main( String[] args )
   {
-    LList james = new LList();
+    LList<String> james = new LList<String>();
 
     System.out.println( james );
     System.out.println( "size: " + james.size() );
@@ -211,7 +211,7 @@ public class LList implements List //interface def must be in this dir
      james.remove(2);
      System.out.println( james );
 
-     DLLNode last = james._head;
+     DLLNode<String> last = james._head;
      for(int i=0;i<james.size();i++){
        System.out.println( "element: " + last);
        System.out.println( "previous: " + last.getPrev() );
