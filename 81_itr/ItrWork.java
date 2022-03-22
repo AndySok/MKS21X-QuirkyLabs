@@ -1,6 +1,24 @@
+/*
+ Team Fred (Andrey Sokolov + Geese, Rin Fukuoka + Tape, Kartik Vanjani + Krish)
+ APCS PD8
+ HW 81: It works!
+ 2022-03-22
+ Spent: 0.5 hrs
+*/
+
+/*
+ * DISCO
+ * -
+ * -
+ * -
+ * QCC
+ * -
+ * -
+ * -
+ */
+
 /***
  * class ItrWork
- *  SKELETON
  * Facilitates familiarization with iterators
  **/
 
