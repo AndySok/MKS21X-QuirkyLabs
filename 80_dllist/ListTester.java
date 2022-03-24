@@ -49,12 +49,13 @@ public class ListTester
     }
 
     while( wu.size() > 0 ) {
+//      wu.remove(wu.size()-1);
     int n = (int)( wu.size() * Math.random() );
-    System.out.println("deleting node "+ n + "...");
+    System.out.println("deleting node "+ n + ": " + wu.get(n) + "...");
     wu.remove(n);
     System.out.println("Updated list: " + wu);
     }
-
+/*
     System.out.println("-------------------------------------------");
     LList<Integer> inte = new LList<Integer>();
     inte.add(5);
@@ -68,6 +69,7 @@ public class ListTester
       inte.add( n, n*7 );
       System.out.println("Updated list: " + inte);
       }
+      */
     //*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()

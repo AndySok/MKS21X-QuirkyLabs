@@ -83,7 +83,7 @@ public class LList<T> implements List<T> //interface def must be in this dir
   public T remove(int index){
     T original = this.get(index);
       if (index == 0) _head = _head.getNext(); //check if you only need to get rid of the first one
-    	else if( index == _size-1) { //check if you need to get rid of the end
+    	else if( index >= _size-1) { //check if you need to get rid of the end
         DLLNode<T> _temp = _head;
         for(int i=0;i<index-1;i++){
           _temp = _temp.getNext();
