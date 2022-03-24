@@ -1,0 +1,12 @@
+ Team Fred (Andrey Sokolov + Geese, Rin Fukuoka + Tape, Kartik Vanjani + Krish)
+ APCS PD8
+ HW 80: Find and Replace
+ 2022-03-22
+ Spent: 0.5 hrs
+
+
+DISCO
+ - Fairly straight task. Find and replace is a really good friend.
+QCC
+ - What would happen if I were to hypothetically make T and actual class?
+ - Why don't you insert <T> for constructors? 

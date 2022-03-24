@@ -54,6 +54,20 @@ public class ListTester
     wu.remove(n);
     System.out.println("Updated list: " + wu);
     }
+
+    System.out.println("-------------------------------------------");
+    List<Integer> inte = new LList();
+    inte.add(5);
+    inte.add(20);
+    inte.add(13);
+    inte.add(2);
+    System.out.println(inte);
+    for( int i=0; i<7; i++ ) {
+      int n = (int)( wu.size() * Math.random() );
+      System.out.println("adding a poser at index " + n + "...");
+      inte.add( n, n*7 );
+      System.out.println("Updated list: " + inte);
+      }
     //*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
