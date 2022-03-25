@@ -16,6 +16,15 @@
  * - What other methods does the Iterator class have?
  * - How come you can initialize Iterator using LIST_INSTANCE.iterator()?
  * - What's the big difference between using Iterator and a FOREACH loop?
+ *
+ * FIRST:
+ * The Iterator interface is defined as an abstract method of obtaining values from a list of said values one at a time.
+ * As opposed to a more defined FOREACH loop, the Iterator can be used in cases when creating a loop would involve the 
+ * usage of a Scanner Object to make elements in a source into a list.
+ *
+ * SECOND:
+ * The Iterator is a fancy loop. You can use it to get rid of elements easily.
+ *
  */
 
 /***
