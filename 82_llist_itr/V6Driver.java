@@ -23,6 +23,7 @@ public class V6Driver
     wu.add("Method Man");
     System.out.println(wu);
 
+
     for( String s : wu ) {
       System.out.println( s + " raps for the Wu");
     }

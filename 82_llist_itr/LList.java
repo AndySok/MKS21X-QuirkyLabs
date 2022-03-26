@@ -155,9 +155,6 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
   public MyIterator iterator(){
     return new MyIterator(this._head);
   }
-  {
-    /* YOUR CODE HERE */
-  }
 
   //--------------------------------------------------------
   //--------------^  List interface methods  ^--------------
@@ -284,8 +281,11 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     //               (...so that hasNext() will not crash)
     public void remove()
     {
+      if(_dummy.getPrev() == null || _dummy.getNext() == null)
+        throw new IllegalStateException();
+      DLLNode<T> _dummysnext = _dummy.getNext();
       _dummy = _dummy.getPrev();
-      
+      _dummy.setNext(_dummysnext);
     }
     //--------------^  Iterator interface methods  ^-------------
     //-----------------------------------------------------------
