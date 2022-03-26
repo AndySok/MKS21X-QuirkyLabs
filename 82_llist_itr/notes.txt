@@ -1,0 +1,14 @@
+ Team Fred (Andrey Sokolov + Geese, Rin Fukuoka + Tape, Kartik Vanjani + Krish)
+ APCS PD8
+ HW 82: Roll Your Own Iterator
+ 2022-03-25
+ Spent: 0.5 hrs
+
+
+DISCO
+ - 
+ -
+
+QCC
+ - 
+ - 
