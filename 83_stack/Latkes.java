@@ -1,14 +1,18 @@
 /***
- * class Latkes
- * v1
- * SKELETON
- * Implements a stack of Strings using an encapsulated array
+Team Fred (Andrey Sokolov + Geese, Rin Fukuoka + Tape, Kartik Vanjani + Krish)
+APCS PD8
+HW 83: Roll Your Own Iterator
+2022-03-28
+Spent: 0.5 hrs
  **/
 
 /***
     DISCO
+    - Currently the push method only adds new Strings in the array if there is
+      room to do so
 
     QCC
+    - Should the stack size be expanded when there is no more room?
 
  **/
 
@@ -22,67 +26,53 @@ public class Latkes
   //constructor
   public Latkes( int initCapacity )
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    _stack = new String[initCapacity];
+    _stackSize = 0;
+  }// O(1)
 
 
   //means of insertion
   public void push( String s )
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    if (!isFull()) {
+      _stack[_stackSize] = s;
+      _stackSize += 1;
+    }
+  }// O(1)
 
 
   //means of removal
   public String pop( )
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    String temp = null;
+    if (!isEmpty()) {
+      temp = _stack[_stackSize-1];
+      _stack[_stackSize-1] = null;
+      _stackSize -= 1;
+    }
+
+    return temp;
+  }// O(1)
 
 
   //chk for emptiness
   public boolean isEmpty()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    return _stackSize == 0;
+  }// O(1)
 
 
   //chk for fullness
   public boolean isFull()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    return _stackSize == _stack.length;
+  }// O(1)
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+
 
     Latkes tastyStack = new Latkes(10);
 
@@ -96,8 +86,8 @@ public class Latkes
     tastyStack.push("hoo");
     tastyStack.push("ioo");
     tastyStack.push("joo");
-    tastyStack.push("coocoo");
-    tastyStack.push("cachoo");
+    tastyStack.push("coocoo"); //out of stack space/11th
+    tastyStack.push("cachoo"); //out of stack space/12th
 
     //cachoo
     System.out.println( tastyStack.pop() );
@@ -126,6 +116,7 @@ public class Latkes
 
     //stack empty by now; SOP(null)
     System.out.println( tastyStack.pop() );
+    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 
   }//end main()
