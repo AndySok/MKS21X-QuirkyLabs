@@ -6,9 +6,9 @@
 
 
 DISCO
- - 
- - 
+ - most of the methods are one liners!
+ - toString() methods are hard to implement though
 
 QCC
- - 
- - 
+ - what are you supposed to return if something is empty?
+ - are most stacks implemented using list implementations this easy?
