@@ -8,9 +8,14 @@ Spent: 0.5 hrs
 
 /**
 QCC:
+- What if the string has one letter? Do we create a base case where if the size is just 1, return the letter.
+- Would time complexity change if we were to reverse it in any other way?
+- Is this the most efficient way to reverse strings?
 
 DISCO:
-
+- Size of the string does not matter.
+- Popping at the end is important.
+- Popping automatically makes a node null. No need to override anything.
  **/
 
 /***
@@ -30,12 +35,8 @@ public class LatKtS
    **/
   public static String flip( String s )
   {
-    Latkes original = new Latkes(s.length());
+    Latkes original = new Latkes(s);
     String output = "";
-    String[] letters = s.split("");
-    for(int i=0;i<letters.length;i++){
-        original.push(letters[i]);
-    }
     while(!original.isEmpty()){
         output+=original.pop();
     }
@@ -51,23 +52,48 @@ public class LatKtS
    **/
   public static boolean allMatched( String s )
   {
-    return true;
+    Latkes original = new Latkes(s); //({}[()])
+    Latkes closer = new Latkes(s.length()); //)])([}{(
+    while(!original.isEmpty()){
+        if(!closer.isEmpty() && match(closer.peek(), original.peek())){
+            closer.pop();
+            original.pop();
+        }
+        else {
+            closer.push(original.pop());
+        }
+    }
+    return original.isEmpty() && closer.isEmpty();
+  }
+
+  public static boolean match(String a, String b){
+      if(a.equals(")") && b.equals("(")) return true;
+      else if(a.equals("}") && b.equals("{")) return true;
+      else if(a.equals("]") && b.equals("[")) return true;
+      else return false;
   }
 
 
   //main method to test
   public static void main( String[] args )
   {
+    Latkes test = new Latkes("tesd");
+    while(!test.isEmpty()){
+        System.out.println(test.pop());
+    }
     System.out.println(flip("stressed"));
     System.out.println(flip("({}[()])"));
 
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
     System.out.println(allMatched( "({}[()])" )); //true
+
     System.out.println(allMatched( "([)]" ) ); //false
+   
     System.out.println(allMatched( "(){([])}" ) ); //true
     System.out.println(allMatched( "](){([])}" ) ); //false
     System.out.println(allMatched( "(){([])}(" ) ); //false
+   
     System.out.println(allMatched( "()[[]]{{{{((([])))}}}}" ) ); //true
+    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
   }
 

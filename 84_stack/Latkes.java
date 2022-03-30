@@ -30,6 +30,15 @@ public class Latkes
     _stackSize = 0;
   }// O(1)
 
+  public Latkes( String s){
+    _stack = new String[s.length()];
+    _stackSize = 0;
+    String[] letters = s.split("");
+    for(int i=0;i<letters.length;i++){ // (, {, }, [, (, ), ], )
+      this.push(letters[i]);
+    }
+  }
+
 
   //means of insertion
   public void push( String s )
@@ -49,6 +58,17 @@ public class Latkes
       temp = _stack[_stackSize-1];
       _stack[_stackSize-1] = null;
       _stackSize -= 1;
+    }
+
+    return temp;
+  }// O(1)
+
+  //means of peeking
+  public String peek( )
+  {
+    String temp = null;
+    if (!isEmpty()) {
+      temp = _stack[_stackSize-1];
     }
 
     return temp;
