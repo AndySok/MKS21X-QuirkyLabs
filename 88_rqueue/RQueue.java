@@ -8,14 +8,12 @@ import java.util.NoSuchElementException;
  * Spent: 0.5 hrs
  * 
  * DISCO
- * - 
- * - 
- * -
+ * - dequeue() is really similar to remove() from llist!
+ * - sampling works like a charm!
  *  
  * QCC
- * - 
- * - 
- * -
+ * - is there a more optimized way to create a dequeue() method?
+ * - was using a nextElement int the best way to track a random front?
  * 
  * 
  **/
@@ -156,7 +154,6 @@ public class RQueue<QUASAR> implements Queue<QUASAR>{
                        "(expect NPE)\n"); 
     System.out.println( PirateQueue.dequeue() );
       /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
-
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 
   }//end main
