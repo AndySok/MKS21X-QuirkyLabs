@@ -39,13 +39,29 @@ public class RQueue<QUASAR> implements Queue<QUASAR>{
 
     //means of removing an element from collection:
     //Dequeues and returns a random element of the queue.
+    //algo is the same as remove for LList
     public QUASAR dequeue(){
         if(isEmpty()) throw new NoSuchElementException();
-        
-        
-        QUASAR original = _head.getCargo();
-        _head = _head.getNext();
+        QUASAR original = this.peekFront();
+        if (nextElement == 0) _head = _head.getNext(); //check if you only need to get rid of the first one
+    	else if( nextElement >= size()-1) { //check if you need to get rid of the end
+            LLNode<QUASAR> _temp = _head;
+            for(int i=0;i<nextElement-1;i++){
+              _temp = _temp.getNext();
+            }
+            _temp.setNext(null);
+        }
+        else {
+            LLNode<QUASAR> _temp = _head;
+	        //walk to node before desired node
+	        for( int i=0; i < nextElement-1; i++ )
+            _temp = _temp.getNext();
+
+	        //remove target node
+	        _temp.setNext( _temp.getNext().getNext() );
+        }
         size--;
+        this.sample();
         return original;
         
     } //O(n)
@@ -87,7 +103,7 @@ public class RQueue<QUASAR> implements Queue<QUASAR>{
     //2. find the nextElement node in the queue and return it
 
     public QUASAR sample(){
-        nextElement = (int)(Math.random()*size);
+        nextElement = (int)(Math.random()*size());
         return this.peekFront();
     }
 
@@ -127,7 +143,6 @@ public class RQueue<QUASAR> implements Queue<QUASAR>{
     System.out.println("\nnow testing peekFront()..."); 
     System.out.println( PirateQueue.peekFront() ); //for testing toString()...
 
-      /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
 
     System.out.println("\nnow dequeuing..."); 
     System.out.println( PirateQueue.dequeue() );
@@ -140,6 +155,7 @@ public class RQueue<QUASAR> implements Queue<QUASAR>{
     System.out.println("\nnow dequeuing fr empty queue...\n" +
                        "(expect NPE)\n"); 
     System.out.println( PirateQueue.dequeue() );
+      /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
 
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 
