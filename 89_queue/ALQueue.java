@@ -1,3 +1,23 @@
+/**
+ * Team Fred (Andrey Sokolov + Geese, Rin Fukuoka + Tape, Kartik Vanjani + Krish)
+ * APCS PD8
+ * HW 89: McDonald's Drive-thrus
+ * 2022-04-11
+ * Spent: 0.5 hrs
+ * 
+ * DISCO
+ * - its interesting how the code for one wrapper works as the code for the other wrapper method
+ * - thank god for isEmpty() being an actual function
+ *  
+ * QCC
+ * - is there a more optimized way to create a dequeue() method for LLQueue??
+ * - are all classes implementing List interface this easy to make into queues?
+ * 
+ * 
+ **/
+
+
+
 import java.util.ArrayList;
 
 public class ALQueue<QUASAR> implements Queue<QUASAR>{
