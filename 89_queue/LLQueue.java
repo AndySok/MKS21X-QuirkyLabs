@@ -44,4 +44,9 @@ public class LLQueue<QUASAR> implements Queue<QUASAR> {
     public QUASAR peekFront(){
         return _array.peek();
     }
+
+    public String toString(){
+        return _array.toString();
+    }
+
 }

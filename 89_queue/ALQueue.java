@@ -46,5 +46,9 @@ public class ALQueue<QUASAR> implements Queue<QUASAR>{
     public QUASAR peekFront(){
         return _array.get(0);
     }
+    
+    public String toString(){
+        return _array.toString();
+    }
      
 }
