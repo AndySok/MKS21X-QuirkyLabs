@@ -25,6 +25,10 @@ public interface Deque<Cards> {
   public int size();
   //retrieves, but does not remove, the head of the queue
   public Cards peek(); 
-    // - peekFirst
-    // - peekLast
+
+    //peekFirst
+    //peekLast
+    //pop
+    //removeFirstOccurence
+    //removeLastOccurence
 }//end of class
