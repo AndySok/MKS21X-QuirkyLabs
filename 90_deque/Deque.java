@@ -1,3 +1,9 @@
+// Team FRED - Andrey Sokolov + Geese & Rin Fukuoka + Tape, Kartik Vanjani + Krish
+// APCS pd8
+// HW90 - KAchoo Deque
+// 2022-04-12
+// time spent: 0.5 hours
+
 public interface Deque<Cards> {
   //adds an element to the end of deque and returns true
   public boolean add( Cards card);
@@ -17,4 +23,8 @@ public interface Deque<Cards> {
   public boolean contains( Cards card );
   //returns the size of the deque
   public int size();
+  //retrieves, but does not remove, the head of the queue
+  public Cards peek(); 
+    // - peekFirst
+    // - peekLast
 }//end of class

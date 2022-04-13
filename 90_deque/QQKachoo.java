@@ -1,3 +1,9 @@
+// Team FRED - Andrey Sokolov + Geese & Rin Fukuoka + Tape, Kartik Vanjani + Krish
+// APCS pd8
+// HW90 - KAchoo Deque
+// 2022-04-12
+// time spent: 0.5 hours
+
 import java.util.*;
 
 public class QQKachoo<Cards> implements Deque<Cards> {
@@ -22,6 +28,11 @@ public class QQKachoo<Cards> implements Deque<Cards> {
   //toString()
   public String toString(){
     return _arr.toString();
+  }
+
+  //retrieves, but does not remove, the head of the queue
+  public Cards peek() {
+    return _arr.peek(); 
   }
 //-------------------------------//
 
@@ -58,39 +69,5 @@ public class QQKachoo<Cards> implements Deque<Cards> {
     return _arr.removeLast();
   }
 //-------------------------------//
-
-  public static void main(String[] args){
-    //props to THEODORE YOCHUM for writing this lovely main like 3 weeks ago :D
-    AddLast15();
-    AddFirst15();
-
-  }
-
-  public static void AddLast15() {
-    QQKachoo<Integer> test = new QQKachoo<Integer>();
-    //Deque real = new ArrayDeque<Integer>();
-    for (int i = 0; i < 15; i++) {
-      test.addLast(i);
-//      real.addLast(i);
-    }
-//    System.out.println("Should print a deque of numbers 0 to 14 in linear order incrementing by 1");
-    System.out.println(test);
-//    System.out.println("Correct: " + (real.toString().equals(test.toString())));
-//    System.out.println();
-  }
-
-  public static void AddFirst15() {
-    QQKachoo<Integer> test = new QQKachoo<Integer>();
-    //Deque real = new ArrayDeque<Integer>();
-    for (int i = 0; i < 15; i++) {
-      test.addFirst(i);
-//      real.addFirst(i);
-    }
-    System.out.println("Should print a deque of numbers 14 to 0 in reverse linear order deceremnting by 1");
-    System.out.println(test);
-//    System.out.println("Correct: " + (real.toString().equals(test.toString())));
-//    System.out.println();
-  }
-
 
 }
