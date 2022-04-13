@@ -4,7 +4,7 @@
 // 2022-04-12
 // time spent: 0.5 hours
 
-#PLAN
+#PLAN 2022-04-12
 - finish reading through the oracle documentation of deque
 - figure out the methods we implement
 - put these methods in the interface according to priority and ability:
@@ -16,4 +16,14 @@
     - removeLast
     - size
     - toString
+    - contains
 - implement these methods inside the QQKachoo class, and test them inside a main()
+
+#PLAN 2022-04-13
+- put these methods in the interface according to priority and ability:
+    - peek 
+    - peekFirst
+    - peekLast
+    - pop 
+    - removeFirstOccurence
+    - removeLastOccurence

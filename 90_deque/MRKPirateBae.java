@@ -24,6 +24,18 @@ public class MRKPirateBae {
         System.out.println("Remove first and last elements, which are 0 and 14");
         System.out.println(test);
 
+        //test contains
+        System.out.println(test.contains(0)); //false
+        System.out.println(test2.contains(0)); //true
+
+        //test size 
+        System.out.println("size of test: " + test.size()); //13
+
+        //test peek
+        System.out.println(test.peek()); //1
+
+
+
         
       }//end of main
         
