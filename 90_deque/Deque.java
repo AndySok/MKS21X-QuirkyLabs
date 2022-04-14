@@ -1,7 +1,7 @@
 // Team FRED - Andrey Sokolov + Geese & Rin Fukuoka + Tape, Kartik Vanjani + Krish
 // APCS pd8
-// HW90 - KAchoo Deque
-// 2022-04-12
+// HW90/91 - KAchoo Deque
+// 2022-04-12/13
 // time spent: 0.5 hours
 
 public interface Deque<Cards> {

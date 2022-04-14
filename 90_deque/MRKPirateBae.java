@@ -1,3 +1,9 @@
+// Team FRED - Andrey Sokolov + Geese & Rin Fukuoka + Tape, Kartik Vanjani + Krish
+// APCS pd8
+// HW90/91 - KAchoo Deque
+// 2022-04-13
+// time spent: 0.5 hours
+
 public class MRKPirateBae {
     public static void main(String[] args){
         //props to THEODORE YOCHUM for writing this lovely main like 3 weeks ago :D
