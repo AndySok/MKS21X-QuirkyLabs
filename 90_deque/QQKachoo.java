@@ -32,7 +32,16 @@ public class QQKachoo<Cards> implements Deque<Cards> {
 
   //retrieves, but does not remove, the head of the queue
   public Cards peek() {
-    return _arr.peek(); 
+    return _arr.peek();
+  }
+
+  //retrieves, but does not remove, the first element of the deque
+  public Cards peekFirst() {
+    return _arr.peekFirst();
+  }
+  //retrieves, but does not remove, the end element of this deque
+  public Cards peekLast() {
+    return _arr.peekLast();
   }
 //-------------------------------//
 
@@ -67,6 +76,18 @@ public class QQKachoo<Cards> implements Deque<Cards> {
   //retrieves and removes the last element of deque
   public Cards removeLast() {
     return _arr.removeLast();
+  }
+  //removes the first appeareance of the element from the deque and returns true
+  public boolean removeFirstOccurrence(Cards card) {
+    return _arr.removeFirstOccurrence(card);
+  }
+  //removes the last appeareance of the element from the deque and returns true
+  public boolean removeLastOccurrence(Cards card) {
+    return _arr.removeLastOccurrence(card);
+  }
+  //retrieves, and remove, the tail of the queue
+  public Cards pop(){
+    return _arr.pop();
   }
 //-------------------------------//
 
