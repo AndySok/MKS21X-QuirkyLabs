@@ -21,6 +21,9 @@ Activity 2:
 7. celebrity class has one constructor, but if we wanted to we could implement either Celebrity(String name) for when we only want the name to be initialized or Celebrity() for a default character or Celebrity(String clue) for when we are quirky
 
 Activity 3:
+1. JFrame - the background of the window - allows you to change its size and border and menu bar  
+2. private ArrayList<Celebrity> celebGameList;
+3. no, because you need to show the celebrity in the GUI
 
 DISCO:
 
