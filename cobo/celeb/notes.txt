@@ -1,0 +1,27 @@
+// Team Eddie's Fanclub - Andrey Sokolov + Geese & Ziying Jian + Pinky
+// APCS pd8
+// L09 - Some Folks Call It A Charades
+// 2022-04-26
+// time spent: all of csdojo
+
+Activity 1:
+1. Team, Game, Card classes
+2. currentCard, currentTeam
+3. runGame(), updateScore(), switchTeam()
+4. all three
+5. first ask how many teams you are going to have in the game, then create all the celebrity cards from a provided list. Then shuffle the cards, pick a card for the currentTeam to guess. Start the timer, and let the team play. If the team guesses correctly, add a point to their counter. If they pass, remove a point. Keep going until the timer runs out or there are no cards left. Switch the team, and repeat until there are no more cards.
+6. Computers -- display information, compute things, be a general assistant. Needs hardware to work. You need to know what sort of hardware it has, so yes, you need objects to represent the hardware
+7. my pardner thought it was a wonderful idea
+
+Activity 2:
+1. The constructor initializes the instance variables
+2. The heading describes the permission and the instance name
+3. name and clue
+4. getClue(), getName()
+7. celebrity class has one constructor, but if we wanted to we could implement either Celebrity(String name) for when we only want the name to be initialized or Celebrity() for a default character or Celebrity(String clue) for when we are quirky
+
+Activity 3:
+
+DISCO:
+
+QCC:
