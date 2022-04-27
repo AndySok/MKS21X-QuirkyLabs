@@ -1,3 +1,9 @@
+// Team Eddie's Fanclub - Andrey Sokolov + Geese & Ziying Jian + Pinky
+// APCS pd8
+// L09 - Some Folks Call It A Charades
+// 2022-04-26
+// time spent: all of csdojo
+
 import java.util.ArrayList;
 
 /**
@@ -19,7 +25,7 @@ public class CelebrityGame
 	/**
 	 * The ArrayList of Celebrity values that make up the game
 	 */
-	private ArrayList<Celebrity> celebGameList;
+	public ArrayList<Celebrity> celebGameList;
 	/**
 	 * Builds the game and starts the GUI
 	 */
@@ -34,6 +40,9 @@ public class CelebrityGame
 	public void prepareGame()
 	{
 		celebGameList = new ArrayList<Celebrity>();
+		celebGameList.add(new Celebrity("Eddie Redmayne", "Stars in Fantastic Beasts"));
+		celebGameList.add(new Celebrity("Daniel Radcliff", "Stars in Harry Potter"));
+		celebGameList.add(new Celebrity("Emma Watson", "The star heroine of Harry Potter"));
 		gameWindow.replaceScreen("START");
 	}
 
@@ -47,7 +56,15 @@ public class CelebrityGame
 	 */
 	public boolean processGuess(String guess)
 	{
-		return false;
+		boolean matches = false;
+		if (guess.trim().equalsIgnoreCase(gameCelebrity.getAnswer())){
+			matches = true;
+			celebGameList.remove(0);
+			if (celebGameList.size()>0){
+				gameCelebrity = celebGameList.get(0);
+			}
+		}
+		return matches;
 	}
 
 	/**
@@ -75,7 +92,14 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-		celebGameList.add(new Celebrity(name, guess)); //add type later
+		Celebrity currentCelebrity;
+		if (type.equals("Literature")){
+			currentCelebrity = new LiteratureCelebrity(name, guess);
+		}
+		else {
+			currentCelebrity = new Celebrity(name, guess);
+		}
+		this.celebGameList.add(currentCelebrity);
 	}
 
 	/**
@@ -85,7 +109,8 @@ public class CelebrityGame
 	 */
 	public boolean validateCelebrity(String name)
 	{
-		return name.length() >= 4;
+		String celebGuess = name.trim();
+		return celebGuess.length() >= 4;
 	}
 
 	/**
@@ -97,8 +122,21 @@ public class CelebrityGame
 	 */
 	public boolean validateClue(String clue, String type)
 	{
-		return type.equals("Celebrity") || clue.length() >= 10;
+		boolean validClue = false;
+		if (clue.trim().length() >= 10){
+			validClue = true;
+			if (type.equalsIgnoreCase("lit terature")){
+				String[] temp = clue.split(",");
+				if (temp.length > 1){
+					validClue = true;
+				}
+				else {
+					validClue = false;
+				}
+			}
+		} return validClue;
 	}
+
 
 	/**
 	 * Accessor method for the current size of the list of celebrities
@@ -107,7 +145,7 @@ public class CelebrityGame
 	 */
 	public int getCelebrityGameSize()
 	{
-		return 0;
+		return celebGameList.size();
 	}
 
 	/**
@@ -118,7 +156,7 @@ public class CelebrityGame
 	 */
 	public String sendClue()
 	{
-		return null;
+		return gameCelebrity.getClue();
 	}
 
 	/**
