@@ -72,20 +72,22 @@ public class BST
         stRoot.setRight(newNode);
         newNode.setRight(_temp);
         newNode.setLeft(stRoot);
+        _temp.setLeft(newNode);
       } else {
-        insert( _root.getRight(), newNode);
+        insert( stRoot.getRight(), newNode);
       }
     } else if(stRoot.getValue() > newNode.getValue()){ //check the left
-      if(stRoot.getLeft() == null){ 
+      if(stRoot.getLeft() == null){  // if it reaches
         stRoot.setLeft(newNode);
         newNode.setRight(stRoot);
       } else if (stRoot.getLeft().getValue() < newNode.getValue()) {
-        TreeNode _temp = stRoot.getLeft();
+        TreeNode _temp = stRoot.getLeft(); // gets 2
         stRoot.setLeft(newNode);
         newNode.setLeft(_temp);
         newNode.setRight(stRoot);
+        _temp.setRight(newNode);
       } else {
-        insert( _root.getLeft(), newNode);
+        insert( stRoot.getLeft(), newNode);
       }
     }
   }//end insert()
@@ -95,7 +97,23 @@ public class BST
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~v~~TRAVERSALS~~v~~~~~~~~~~~~~~~~~~~~~
+  //helper traversal methods
+  public void TravLeft( TreeNode _currNode ){
+    System.out.print(_currNode.getValue() + " ");
 
+    if (_currNode.getLeft() != null){
+      TravLeft(_currNode.getLeft());    
+    } else return;
+  }
+
+  public void TravRight( TreeNode _currNode ){
+    System.out.print(_currNode.getValue() + " ");
+  
+    if (_currNode.getRight() != null){
+      TravRight(_currNode.getRight());    
+    } else return;
+   }
+   
   // each traversal should simply print to standard out
   // the nodes visited, in order
 
@@ -104,56 +122,46 @@ public class BST
   {
     System.out.print(_root.getValue() + " ");
     if(_root.getLeft() != null ){
-      preOrderTravLeft( _root.getLeft() );
+      TravLeft( _root.getLeft() );
     }
     if(_root.getRight() != null ){
-      preOrderTravRight( _root.getRight() );
+      TravRight( _root.getRight() );
     }
   }
   
-  public void preOrderTravLeft( TreeNode _currNode ){
-    System.out.print(_currNode.getValue() + " ");
-
-    if (_currNode.getLeft() != null){
-      preOrderTravLeft(_currNode.getLeft());    
-    } else return;
+  //recurse left, process root, recurse right
+  public void inOrderTrav()
+  {
+    TreeNode _temp = _root;
+    while(_temp.getLeft() != null){
+      _temp = _temp.getLeft();
+    }
+    System.out.print(_temp.getValue() + " ");
+    TravRight( _temp.getRight());    
   }
 
-  public void preOrderTravRight( TreeNode _currNode ){
-    System.out.print(_currNode.getValue() + " ");
-  
-    if (_currNode.getRight() != null){
-      preOrderTravRight(_currNode.getRight());    
-    } else return;
-   }
-
-  // //recurse left, process root, recurse right
-  // public void inOrderTrav()
-  // {
-  //   /*** YOUR IMPLEMENTATION HERE ***/
-  // }
-  // public void inOrderTrav( TreeNode currNode )
-  // {
-  //   /*** YOUR IMPLEMENTATION HERE ***/
-  // }
-
   // //recurse left, recurse right, process root
-  // public void postOrderTrav()
-  // {
-  //   /*** YOUR IMPLEMENTATION HERE ***/
-  // }
-  // public void postOrderTrav( TreeNode currNode )
-  // {
-  //   /*** YOUR IMPLEMENTATION HERE ***/
-  // }
+  public void postOrderTrav()
+  {
+     TreeNode _tempLeft = _root;
+    while(_tempLeft.getLeft() != null){ //goes to the left of the left subtree
+      _tempLeft = _tempLeft.getLeft();
+    }
+    while(_tempLeft != _root) { //processes up to the root
+      System.out.print(_tempLeft.getValue() + " ");
+      _tempLeft = _tempLeft.getRight();
+    }
+    TravRight( _root.getRight());    
+    System.out.print(_root.getValue() + " ");
+  }
 
   //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   //toString
-  public String toString(){
-    return "sussy";
-  }
+//  public String toString(){
+//    return "sussy";
+//  }
 
 
   //main method for testing
@@ -170,22 +178,22 @@ public class BST
       arbol.insert( 6 );
       arbol.insert( 1 );
       arbol.insert( 3 );
-//      arbol.insert( 0 );
-      arbol.preOrderTrav();
+      arbol.insert( 0 );
+      System.out.println(arbol);
 
-      /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
       System.out.println( "\n-----------------------------");
       System.out.println( "pre-order traversal:" );
       arbol.preOrderTrav();
-
+      
       System.out.println( "\n-----------------------------");
       System.out.println( "in-order traversal:" );
       arbol.inOrderTrav();
-
+      
       System.out.println( "\n-----------------------------");
       System.out.println( "post-order traversal:" );
       arbol.postOrderTrav();
-
+      
+      /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
       System.out.println( "\n-----------------------------");
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }
