@@ -3,7 +3,13 @@
  * APCS pd08
  * HW95 -- Algorithm as Data Structure
  * 2022-05-09f
- * time spent: 1 hrs
+ * time spent: 2 hrs
+ * 
+ * DISCO
+ * We used the same helper for a few of the in-order and pre-order ops (think simple, think SMART)
+ * 
+ * QCC
+ * What do we do if the value inserted is the same as the value of the root?
  */
 
 /**
@@ -19,9 +25,9 @@
  *  and any value in its right subtree must be greater.)
  * 
  * 
-   1. a perfect binary tree has _____ nodes
-   2. at each level, a perfect binary tree has _____ nodes
-   3.height of a complete binary tree w/ n nodes is _____
+   1. a perfect binary tree has 2^n-1 nodes
+   2. at each level, a perfect binary tree has 2^d nodes
+   3. height of a complete binary tree w/ n nodes is log_2(n) + 1
  *
  * This BST implementation only holds ints (its nodes have int cargo)
  */
@@ -64,9 +70,9 @@ public class BST
   public void insert( TreeNode stRoot, TreeNode newNode )
   {
     if(stRoot.getValue() < newNode.getValue()){ //check the right
-      if(stRoot.getRight() == null){
-        stRoot.setRight(newNode);
-        newNode.setLeft(stRoot);
+      if(stRoot.getRight() == null){ // if the node is the last node
+        stRoot.setRight(newNode); // stRoot: sets the value of the right to the new node
+        newNode.setLeft(stRoot); // newNode: sets the value of the left to the stRoot
       } else if (stRoot.getRight().getValue() > newNode.getValue()) {
         TreeNode _temp = stRoot.getRight();
         stRoot.setRight(newNode);
@@ -77,17 +83,17 @@ public class BST
         insert( stRoot.getRight(), newNode);
       }
     } else if(stRoot.getValue() > newNode.getValue()){ //check the left
-      if(stRoot.getLeft() == null){  // if it reaches
-        stRoot.setLeft(newNode);
-        newNode.setRight(stRoot);
+      if(stRoot.getLeft() == null){  // if the node is the last node
+        stRoot.setLeft(newNode); // stRoot: sets the value of the left to the new node
+        newNode.setRight(stRoot); // newNode: sets the value of the right to the stRoot
       } else if (stRoot.getLeft().getValue() < newNode.getValue()) {
-        TreeNode _temp = stRoot.getLeft(); // gets 2
-        stRoot.setLeft(newNode);
+        TreeNode _temp = stRoot.getLeft(); // does the same but with extra steps if the node is not the last node
+        stRoot.setLeft(newNode); 
         newNode.setLeft(_temp);
         newNode.setRight(stRoot);
         _temp.setRight(newNode);
       } else {
-        insert( stRoot.getLeft(), newNode);
+        insert( stRoot.getLeft(), newNode); // recurse
       }
     }
   }//end insert()
@@ -102,8 +108,8 @@ public class BST
     System.out.print(_currNode.getValue() + " ");
 
     if (_currNode.getLeft() != null){
-      TravLeft(_currNode.getLeft());    
-    } else return;
+      TravLeft(_currNode.getLeft());     
+    } else return; // traverse until last node is reached
   }
 
   public void TravRight( TreeNode _currNode ){
@@ -111,7 +117,7 @@ public class BST
   
     if (_currNode.getRight() != null){
       TravRight(_currNode.getRight());    
-    } else return;
+    } else return; // traverse until last node is reached
    }
    
   // each traversal should simply print to standard out
