@@ -27,7 +27,7 @@ public class ArrayPriorityQueue implements PriorityQueue {
             i++;
           }
           return i;        
-    }
+    } //helper
 
     public boolean isEmpty() {
         return Q.isEmpty();
