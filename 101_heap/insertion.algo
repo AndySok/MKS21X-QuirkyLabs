@@ -7,7 +7,7 @@
  */
 
 ALGO FOR INSERTION
-1. Add the node in the next avaliable spot
+1. Add the node in the next available spot
 2. Compare the node to its parent node
 3. If the parent node is bigger than the child node, swap
 4. Keep swapping until this condition is false and the node reaches the right spot
