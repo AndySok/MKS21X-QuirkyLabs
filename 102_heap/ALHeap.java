@@ -1,4 +1,21 @@
-import java.util.ArrayList;
+/**
+ * Eddie's Fanclub :: Ziying Jian, Andrey Sokolov, Joshua Gao
+ * APCS pd08
+ * HW101 -- Heap o'Trouble
+ * 2022-05-16f
+ * time spent: 1 hrs
+
+
+ DISCO:
+ * Heapify is just a way of recursively swapping elements!
+ * The visualizer was amazing for this assignment and should def be utilized more
+ * The array places all the elements on each level
+
+ QCC:
+ * How do we get heapify to work?
+ * What is the purpose of some of these helper methods if we don't utilize them?
+
+ */
 
 /**
  * class ALHeap
@@ -6,7 +23,8 @@ import java.util.ArrayList;
  * Implements a min heap using an ArrayList as underlying container
  */
 
-//import java.util.ArrayList;
+
+import java.util.ArrayList;
 
 public class ALHeap
 {
@@ -32,6 +50,7 @@ public class ALHeap
    */
   public String toString()
   {
+    return _heap.toString();
   }//O(?)
 
 
@@ -41,7 +60,7 @@ public class ALHeap
    */
   public boolean isEmpty()
   {
-    for(int i=0;i<_heap.size();i++){
+    for(int i=0; i < _heap.size(); i++){
       if(_heap.get(i) != null) return false;
     } return true;
   }//O(n)
@@ -54,7 +73,7 @@ public class ALHeap
    */
   public Integer peekMin()
   {
-    return _heap.get(0);
+    return _heap.get(0); // gets index 0
   }//O(1)
 
 
@@ -70,7 +89,19 @@ public class ALHeap
    */
   public void add( Integer addVal )
   {
-  }//O(?)
+    if(_heap.isEmpty()) _heap.add(addVal);
+    else {
+        _heap.add(addVal);
+        int index = _heap.size()-1;
+        int parent_index = ((index-1)/2);
+        while( _heap.get(index) < _heap.get(parent_index) ){
+          swap(index, parent_index);
+          index = parent_index;
+          parent_index = ((index-1)/2);
+        }
+      }
+    }
+    //O(n)
 
 
   /**
@@ -78,12 +109,37 @@ public class ALHeap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * 1. Remove the smallest element
+   * 2.
+   *
    */
+
   public Integer removeMin()
   {
+    if (isEmpty()) return -1;
+    Integer removed = _heap.get(0);
+    _heap.set(0, _heap.size()-1);
+    heapify(0);
+    return removed;
   }//O(?)
 
+  public void heapify(int pos)
+  {
+    int leftChild = pos*2;
+    int rightChild = pos*2+1;
+    if ( _heap.get(pos) > _heap.get(leftChild) || _heap.get(pos) > _heap.get(rightChild) ){
+      // if any child is less than the parent
+      if ( _heap.get(leftChild) < _heap.get(rightChild) ){
+        // keep checking and swapping
+        swap(pos, leftChild);
+        heapify(leftChild);
+      }
+      else {
+        swap(pos, rightChild);
+        heapify(rightChild);
+      }
+    }
+  }
 
   /**
    * minChildPos(int)  ---  helper fxn for removeMin()
@@ -93,10 +149,19 @@ public class ALHeap
    */
   private int minChildPos( int pos )
   {
-  }//O(?)
+    int leftChild = pos*2;
+    int rightChild = pos*2+1;
+    if (_heap.isEmpty() || ((_heap.get(leftChild) == null) && (_heap.get(rightChild) == null))) return -1;
+    else if (_heap.get(leftChild) == null) return rightChild;
+    else if (_heap.get(rightChild) == null) return leftChild;
+    else if ( _heap.get(leftChild).compareTo(_heap.get(rightChild)) < 0 ){
+      return leftChild;
+    } else return rightChild;
+  }//O(1)
 
 
-  //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
+
+  // //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
   private Integer minOf( Integer a, Integer b )
   {
     if ( a.compareTo(b) < 0 )
@@ -105,10 +170,10 @@ public class ALHeap
       return b;
   }
 
-  //swap for an ArrayList
+  // swap for an ArrayList
   private void swap( int pos1, int pos2 )
   {
-    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );	
+    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -117,7 +182,6 @@ public class ALHeap
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ALHeap pile = new ALHeap();
 
       pile.add(2);
@@ -163,6 +227,7 @@ public class ALHeap
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
+      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
